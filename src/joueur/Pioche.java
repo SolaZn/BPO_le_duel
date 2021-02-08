@@ -25,7 +25,7 @@ public class Pioche {
         return this.nbCartes;
     }
 
-    public Carte getCarte() {
+    public Carte getCartePioche() {
         Carte carte_tiree = this.pilePioche.peek();
         this.pilePioche.pop();
         this.nbCartes--;

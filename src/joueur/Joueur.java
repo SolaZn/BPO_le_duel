@@ -1,41 +1,41 @@
 package joueur;
 
-import java.util.LinkedList;
 import java.util.Stack;
 
 public class Joueur {
     private String nomJoueur;
     private Stack<Carte> pileAsc;
     private Stack<Carte> pileDsc;
-    private LinkedList<Carte> mainJoueur;
+    private MainJ mainJoueur;
     private Pioche piocheJoueur;
+
+    // ajouter un champ Gagnant pour pouvoir le changer et le verifier en fin de partie
 
     public Joueur(String nom){
         this.nomJoueur = nom;
         this.piocheJoueur = new Pioche();
-        initialiserMain();
+        this.mainJoueur = new MainJ(this);
         initialiserPiles();
     }
 
-    private void initialiserMain(){
-        this.mainJoueur = new LinkedList<>();
-        for(int i = 0; i < 6; ++i) {
-            this.mainJoueur.add(piocheJoueur.getCarte());
-        }
+    // séparer la main du joueur
+
+    public String getNom() {
+        return nomJoueur;
     }
 
-    public String afficheMain(){
-        String a = "cartes " + this.nomJoueur + " { ";
-        for(int i = 0; i < 6; ++i){
-            a += String.valueOf(this.mainJoueur.get(i).getNumero());
-            a += " ";
-        }
-        a += "}";
-        return a;
+    public Carte showLastAsc(){
+        return this.pileAsc.peek();
     }
+    public Carte showLastDsc(){
+        return this.pileDsc.peek();
+    }
+
+
+    // fin main
 
     // Coder la fonction qui permettra de jouer une carte provenant de la main
-    // Il faudra pouvoir la retirer de la LinkedList (s'insprier de getCarte() et
+    // Il faudra pouvoir la retirer de la LinkedList (s'insprier de getCartePioche() et
     // de la méthode move/delete? dans LinkedList. Et pouvoir la remettre en cas d'échec du tour
 
     private void initialiserPiles(){
@@ -56,10 +56,27 @@ public class Joueur {
         return a;
     }
 
+    public void setPileDsc(int numero){
+        Carte carte = new Carte(numero);
+        this.pileDsc.push(carte);
+    }
+    public void setPileAsc(int numero){
+        Carte carte = new Carte(numero);
+        this.pileAsc.push(carte);
+    }
+
+    public Pioche getPioche(){
+        return this.piocheJoueur;
+    }
+
+    public MainJ getMainJoueur(){
+        return this.mainJoueur;
+    }
+
     public String toString() {
         return nomJoueur + " " +
                 affichePiles() +
-                " (m" + mainJoueur.size()
+                " (m" + mainJoueur.getTailleMain()
                 + "p" + piocheJoueur.getNbCartes() + ")";
     }
 }
