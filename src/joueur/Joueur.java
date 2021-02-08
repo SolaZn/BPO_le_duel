@@ -1,4 +1,4 @@
-package appli;
+package joueur;
 
 import java.util.LinkedList;
 import java.util.Stack;

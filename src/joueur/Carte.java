@@ -1,4 +1,4 @@
-package appli;
+package joueur;
 
 public class Carte {
     private final int numero;

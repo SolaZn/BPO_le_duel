@@ -1,5 +1,7 @@
 package appli;
 
+import joueur.Joueur;
+
 public class Application {
     public static void main(String[] args) {
         Joueur j = new Joueur("NORD");

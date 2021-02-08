@@ -1,4 +1,4 @@
-package appli;
+package joueur;
 
 import java.util.Collections;
 import java.util.Stack;
