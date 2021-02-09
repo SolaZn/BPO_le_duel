@@ -15,5 +15,7 @@ Corriger les bugs qui empêchent SUD de poser ses cartes aléatoires (passer au 
 Mettre en place les règles de fin de jeu (gagnant, perdant + ajouter attribut g/p dans classe Joueur)
 Mettre en place les messages de fin de jeu
 Mettre en place des 0 avant les nombres à un seul chiffre lors de l'affichage 
+Mettre en place le retrait de la carte jouée de la main du joueur la jouant
+Mettre en place le piochage de carte par le joueur après qu'il aie joué
 Empêcher éventuellement le joueur de rentrer des chiffres seuls ? (à voir, peut être dur)
 Vérifier que tous les cas d'erreurs de saisie font que le tour se recommence
