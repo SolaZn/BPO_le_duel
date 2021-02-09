@@ -6,19 +6,23 @@ import java.util.Scanner;
 public class Application {
 
     private static boolean jouer(int carteJouee, String Carte, Joueur J, Joueur J2){
+        // ajouter les retraits de carte de la main du joueur après qu'elles aient été posées
+        // + les règles de remplissage de la main en fonction de là où la carte a été posée
         if(Carte.length() == 4){
             if(Carte.charAt(3) == '\''){
                 switch (Carte.charAt(2)){
                     case 'v' :
-                        if(carteJouee < J2.showLastDsc().getNumero()){
+                        if(carteJouee > J2.showLastDsc().getNumero()){
                             J2.setPileDsc(carteJouee);
                             return true;
                         }
+                        break;
                     case '^' :
-                        if(carteJouee > J2.showLastAsc().getNumero()){
+                        if(carteJouee < J2.showLastAsc().getNumero()){
                             J2.setPileAsc(carteJouee);
                             return true;
                         }
+                        break;
                     default : return false;
                 }
             }
@@ -28,18 +32,21 @@ public class Application {
         else{
             switch (Carte.charAt(2)){
                 case 'v' :
-                    if(carteJouee > J.showLastDsc().getNumero() || carteJouee < (J.showLastDsc().getNumero() - 10)){
-                        J.setPileAsc(carteJouee);
+                    if(carteJouee < J.showLastDsc().getNumero() || carteJouee == (J.showLastDsc().getNumero() - 10)){
+                        J.setPileDsc(carteJouee);
                         return true;
                     }
+                    break;
                 case '^' :
-                    if(carteJouee < J.showLastAsc().getNumero() || carteJouee > (J.showLastAsc().getNumero() + 10)){
+                    if(carteJouee > J.showLastAsc().getNumero() || carteJouee == (J.showLastAsc().getNumero() + 10)){
                         J.setPileAsc(carteJouee);
                         return true;
                     }
+                    break;
                 default : return false;
             }
         }
+        return false;
     }
 
     private static boolean verifCarte(int[] intTab, Joueur J){
@@ -116,6 +123,7 @@ public class Application {
             if(nbIterations == intTab.length){
                 coupValide = true;
             }
+            // pouvoir revenir en arrière sur les cartes en cas de jeu faux pour cause de cartes mal posées
 
         }while (!coupValide);
     }
