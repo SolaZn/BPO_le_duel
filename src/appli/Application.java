@@ -12,14 +12,16 @@ public class Application {
             if(Carte.charAt(3) == '\''){
                 switch (Carte.charAt(2)){
                     case 'v' :
-                        if(carteJouee > J2.showLastDsc().getNumero()){
+                        if(carteJouee > J2.showLastDsc()){
                             J2.setPileDsc(carteJouee);
+                            J.getMainJoueur().chercherCarte(carteJouee);
                             return true;
                         }
                         break;
                     case '^' :
-                        if(carteJouee < J2.showLastAsc().getNumero()){
+                        if(carteJouee < J2.showLastAsc()){
                             J2.setPileAsc(carteJouee);
+                            J.getMainJoueur().chercherCarte(carteJouee);
                             return true;
                         }
                         break;
@@ -32,14 +34,16 @@ public class Application {
         else{
             switch (Carte.charAt(2)){
                 case 'v' :
-                    if(carteJouee < J.showLastDsc().getNumero() || carteJouee == (J.showLastDsc().getNumero() - 10)){
+                    if(carteJouee < J.showLastDsc() || carteJouee == (J.showLastDsc() - 10)){
                         J.setPileDsc(carteJouee);
+                        J.getMainJoueur().chercherCarte(carteJouee);
                         return true;
                     }
                     break;
                 case '^' :
-                    if(carteJouee > J.showLastAsc().getNumero() || carteJouee == (J.showLastAsc().getNumero() + 10)){
+                    if(carteJouee > J.showLastAsc() || carteJouee == (J.showLastAsc() + 10)){
                         J.setPileAsc(carteJouee);
+                        J.getMainJoueur().chercherCarte(carteJouee);
                         return true;
                     }
                     break;
@@ -53,7 +57,7 @@ public class Application {
         int cartesExistantes = 0;
         for(int cartes : intTab){
             for(int i = 0; i < J.getMainJoueur().getTailleMain(); ++i){
-                if (cartes == J.getMainJoueur().showCarteMain(i).getNumero()){
+                if (cartes == J.getMainJoueur().showCarteMain(i)){
                     cartesExistantes++;
                     break;
                 }
@@ -64,10 +68,16 @@ public class Application {
     }
 
     private static void tour(Joueur J, Joueur J2){
-        System.out.println(J.toString());
-        System.out.println(J2.toString());
+        if(J.getNom().equals("NORD")) {
+            System.out.println(J.toString());
+            System.out.println(J2.toString());
+        }
+        else{
+            System.out.println(J2.toString());
+            System.out.println(J.toString());
+        }
 
-        System.out.println(J.getMainJoueur().afficheMain(J));
+        System.out.println(J.getMainJoueur().toString(J));
         int nbEssais = 0;
         boolean coupValide = false;
 

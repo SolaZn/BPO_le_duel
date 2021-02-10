@@ -4,8 +4,8 @@ import java.util.Stack;
 
 public class Joueur {
     private String nomJoueur;
-    private Stack<Carte> pileAsc;
-    private Stack<Carte> pileDsc;
+    private Stack<Integer> pileAsc;
+    private Stack<Integer> pileDsc;
     private MainJ mainJoueur;
     private Pioche piocheJoueur;
 
@@ -24,10 +24,10 @@ public class Joueur {
         return nomJoueur;
     }
 
-    public Carte showLastAsc(){
+    public int showLastAsc(){
         return this.pileAsc.peek();
     }
-    public Carte showLastDsc(){
+    public int showLastDsc(){
         return this.pileDsc.peek();
     }
 
@@ -42,27 +42,25 @@ public class Joueur {
         this.pileDsc = new Stack<>();
         this.pileAsc = new Stack<>();
 
-        this.pileDsc.push(new Carte(60));
-        this.pileAsc.push(new Carte(1));
+        this.pileDsc.push(60);
+        this.pileAsc.push(1);
     }
 
     private String affichePiles(){
         String a = "^[";
-        a += String.valueOf(this.pileAsc.peek().getNumero());
+        a += String.valueOf(this.pileAsc.peek());
         a += "] v[";
-        a += String.valueOf(this.pileDsc.peek().getNumero());
+        a += String.valueOf(this.pileDsc.peek());
         a += "]";
 
         return a;
     }
 
     public void setPileDsc(int numero){
-        Carte carte = new Carte(numero);
-        this.pileDsc.push(carte);
+        this.pileDsc.push(numero);
     }
     public void setPileAsc(int numero){
-        Carte carte = new Carte(numero);
-        this.pileAsc.push(carte);
+        this.pileAsc.push(numero);
     }
 
     public Pioche getPioche(){
