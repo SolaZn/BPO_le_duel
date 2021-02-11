@@ -8,6 +8,8 @@ public class Joueur {
     private Stack<Integer> pileDsc;
     private MainJ mainJoueur;
     private Pioche piocheJoueur;
+
+    private boolean jeuHostile;
     private boolean gagnant;
 
     // ajouter un champ Gagnant pour pouvoir le changer et le verifier en fin de partie
@@ -18,6 +20,7 @@ public class Joueur {
         this.mainJoueur = new MainJ(this);
         initialiserPiles();
         this.gagnant = false;
+        this.jeuHostile = false;
     }
 
     // séparer la main du joueur
@@ -88,5 +91,21 @@ public class Joueur {
                 affichePiles() +
                 " (m" + mainJoueur.getTailleMain()
                 + "p" + piocheJoueur.getNbCartes() + ")";
+    }
+
+    public void setGagnant(){
+        this.gagnant = true;
+    }
+
+    public void setJeuHostile(boolean Etat){
+        this.jeuHostile = Etat;
+    }
+
+    public boolean getJeuHostile(){
+        return this.jeuHostile;
+    }
+
+    public boolean isGagnant(){
+        return this.gagnant;
     }
 }

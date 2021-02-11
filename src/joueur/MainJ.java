@@ -34,6 +34,24 @@ public class MainJ {
         }
     }
 
+    public void setCarteMain(int carte){
+        this.main.add(carte);
+    }
+
+    public void remplirMain(Joueur J){
+        int nbCartesAPiocher = 0;
+        boolean aJoueAilleurs = J.getJeuHostile();
+        if (aJoueAilleurs){
+            nbCartesAPiocher = 6 - this.main.size();
+        }
+        else
+            nbCartesAPiocher = 2;
+
+        for(int i = 0; i < nbCartesAPiocher; ++i) {
+            this.main.add(J.getPioche().getCartePioche());
+        }
+    }
+
     public int showCarteMain(int idx){
         return this.main.get(idx);
     }
