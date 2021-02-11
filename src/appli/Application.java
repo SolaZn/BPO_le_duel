@@ -1,11 +1,14 @@
 package appli;
 
 import joueur.Joueur;
+
+import java.util.LinkedList;
 import java.util.Scanner;
 
 public class Application {
+    enum etatCompteur{Asc, Dsc, AscAd, DscAd};
 
-    private static boolean jouer(int carteJouee, String Carte, Joueur J, Joueur J2){
+    private static boolean jouer(int carteJouee, String Carte, Joueur J, Joueur J2, LinkedList<etatCompteur> compteur){
         // ajouter les retraits de carte de la main du joueur après qu'elles aient été posées
         // + les règles de remplissage de la main en fonction de là où la carte a été posée
         if(Carte.length() == 4){
@@ -15,6 +18,7 @@ public class Application {
                         if(carteJouee > J2.showLastDsc()){
                             J2.setPileDsc(carteJouee);
                             J.getMainJoueur().chercherCarte(carteJouee);
+                            compteur.add(etatCompteur.DscAd);
                             return true;
                         }
                         break;
@@ -22,6 +26,7 @@ public class Application {
                         if(carteJouee < J2.showLastAsc()){
                             J2.setPileAsc(carteJouee);
                             J.getMainJoueur().chercherCarte(carteJouee);
+                            compteur.add(etatCompteur.AscAd);
                             return true;
                         }
                         break;
@@ -37,6 +42,7 @@ public class Application {
                     if(carteJouee < J.showLastDsc() || carteJouee == (J.showLastDsc() - 10)){
                         J.setPileDsc(carteJouee);
                         J.getMainJoueur().chercherCarte(carteJouee);
+                        compteur.add(etatCompteur.Dsc);
                         return true;
                     }
                     break;
@@ -44,6 +50,7 @@ public class Application {
                     if(carteJouee > J.showLastAsc() || carteJouee == (J.showLastAsc() + 10)){
                         J.setPileAsc(carteJouee);
                         J.getMainJoueur().chercherCarte(carteJouee);
+                        compteur.add(etatCompteur.Asc);
                         return true;
                     }
                     break;
@@ -65,6 +72,17 @@ public class Application {
         }
 
         return cartesExistantes == intTab.length;
+    }
+
+    private static void reinitialiserTour(Joueur J, Joueur J2, LinkedList<etatCompteur> compteur){
+        for(int i = 0; i < compteur.size(); ++i){
+            switch (compteur.get(i)){
+                case Asc: J.getMainJoueur().add(J.getPileAsc());
+                case Dsc: J.getMainJoueur().add(J.getPileDsc());
+                case AscAd: J.getMainJoueur().add(J2.getPileAsc());
+                case DscAd: J.getMainJoueur().add(J2.getPileDsc());
+            }
+        }
     }
 
     private static void tour(Joueur J, Joueur J2){
@@ -102,13 +120,6 @@ public class Application {
                 intTab[i] += Integer.parseInt(String.valueOf(tab[i].charAt(1)));
             }
 
-            //12^` -> on créé une carte 12
-            //-> ^ pile ascendante
-            //-> ` adverse
-
-            //(boolean) verifCarte(intTab, J);
-            //  x(nombre de cartes jouees)
-
             if (!verifCarte(intTab, J)){
                 continue;
             }
@@ -121,13 +132,14 @@ public class Application {
                             alors on verifie là -> faux;
                                 alors on joue et on modifie
                                     alors on l'enlève soit de J soit de J2' et on la remets etc...*/
-            int nbIterations = 0;
+            LinkedList<etatCompteur> Compteur = new LinkedList<etatCompteur>();
             for(int i = 0; i < intTab.length; ++i){
-                if(jouer(intTab[i], tab[i], J, J2)){
-                    nbIterations++;
+                if(jouer(intTab[i], tab[i], J, J2, Compteur)){
                 }
-                else
+                else {
+                    reinitialiserTour(J, J2, Compteur);
                     break;
+                }
             }
 
             if(nbIterations == intTab.length){
@@ -138,26 +150,41 @@ public class Application {
         }while (!coupValide);
     }
 
+    private static boolean partieGagnée(Joueur J, Joueur J2){
+        if(J.getMainJoueur().isEmpty() && J.getPiocheJoueur().isEmpty()){
+            return true
+        }
+        return false;
+    }
+
     public static void main(String[] args) {
         Joueur j = new Joueur("NORD");
         Joueur j2 = new Joueur("SUD");
-        int nbTours = 1;
-        boolean etatJeu = false;
 
         do{
-            tour(j, j2);
-            nbTours++;
-            /* if(PartieFinie()){ // partiefinie vérifie à la fois la victoire de J1 et la défaite de J2
+            //Nord joue
+            if(j.getMainJoueur().getTailleMain() >= 2){
+                tour(j, j2);
+                if(partieGagnée(j, j2)){ // partiefinie vérifie à la fois la victoire de J1
+                    break;
+                }
+            }
+            else{
+
                 break;
-            }*/
+            }
 
             //Sud joue
-            tour(j2, j);
-            nbTours++;
-            /*if(PartieFinie()){ // partiefinie vérifie à la fois la victoire de J1 et la défaite de J2
+            if(j2.getMainJoueur.getTailleMain >= 2){
+                tour(j2, j);
+                if(partieGagnée(j2, j)){ // partiefinie vérifie à la fois la victoire de J2
+                    break;
+                }
+            }
+            else{
                 break;
-            }*/
+            }
 
-       }while (!etatJeu);
+       }while ();
     }
 }

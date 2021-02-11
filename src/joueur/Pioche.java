@@ -25,6 +25,10 @@ public class Pioche {
         return this.nbCartes;
     }
 
+    public boolean isEmpty(){
+        return this.nbCartes == 0;
+    }
+
     public int getCartePioche() {
         int carte_tiree = this.pilePioche.peek();
         this.pilePioche.pop();

@@ -41,4 +41,8 @@ public class MainJ {
     public int getTailleMain(){
         return this.main.size();
     }
+
+    public boolean isEmpty(){
+        return this.main.size() == 0;
+    }
 }
