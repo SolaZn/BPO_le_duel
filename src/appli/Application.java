@@ -130,9 +130,13 @@ public class Application {
             int[] intTab = new int[tab.length];
 
             for (int i = 0; i < tab.length; ++i) {
+                // try sinon catch sur la conversion en int (qui pourra sortir de la boucle et forcer l'utilisateur
+                // a recommencer sa saisie)
+                // try this
                 intTab[i] = Integer.parseInt(String.valueOf(tab[i].charAt(0)));
                 intTab[i] *= 10;
                 intTab[i] += Integer.parseInt(String.valueOf(tab[i].charAt(1)));
+                // or if failed, go outside and retry
             }
 
             if (!verifCarte(intTab, J)){
