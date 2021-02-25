@@ -154,18 +154,26 @@ public class Application {
             LinkedList<etatCompteur> Compteur = new LinkedList<>();
             int nbIterations = 0;
             for(int i = 0; i < intTab.length; ++i){
-                if(jouer(intTab[i], tab[i], J, J2, Compteur)){
+                if(jouer(intTab[i], tab[i], J, J2, Compteur)) {
                     ++nbIterations;
-                }
-                else {
-                    reinitialiserTour(J, J2, Compteur);
-                    break;
                 }
             }
 
-            if(nbIterations == intTab.length){
+            int nbCarteAd = 0;
+
+            for(int i = 0; i < Compteur.size(); ++i){
+                if(Compteur.get(i).equals(etatCompteur.AscAd) || Compteur.get(i).equals(etatCompteur.DscAd)){
+                    ++nbCarteAd;
+                }
+            }
+
+            if(nbIterations == intTab.length && nbCarteAd <= 1){
                 coupValide = true;
             }
+            else {
+                reinitialiserTour(J, J2, Compteur);
+            }
+
             // pouvoir revenir en arrière sur les cartes en cas de jeu faux pour cause de cartes mal posées
         }while (!coupValide);
     }
