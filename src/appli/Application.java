@@ -15,8 +15,8 @@ public class Application {
             if(Carte.charAt(3) == '\''){
                 switch (Carte.charAt(2)){
                     case 'v' :
-                        if(carteJouee > J2.showLastDsc()){
-                            J2.setPileDsc(carteJouee);
+                        if(carteJouee > J2.getPileDsc().showCarte()){
+                            J2.getPileDsc().pushPile(carteJouee);
                             J.getMainJoueur().chercherCarte(carteJouee);
                             compteur.add(etatCompteur.DscAd);
                             J.setJeuHostile(true);
@@ -24,8 +24,8 @@ public class Application {
                         }
                         break;
                     case '^' :
-                        if(carteJouee < J2.showLastAsc()){
-                            J2.setPileAsc(carteJouee);
+                        if(carteJouee < J2.getPileAsc().showCarte()){
+                            J2.getPileAsc().pushPile(carteJouee);
                             J.getMainJoueur().chercherCarte(carteJouee);
                             compteur.add(etatCompteur.AscAd);
                             J.setJeuHostile(true);
@@ -41,16 +41,16 @@ public class Application {
         else{
             switch (Carte.charAt(2)){
                 case 'v' :
-                    if(carteJouee < J.showLastDsc() || carteJouee == (J.showLastDsc() - 10)){
-                        J.setPileDsc(carteJouee);
+                    if(carteJouee < J.getPileDsc().showCarte() || carteJouee == (J.getPileDsc().showCarte() - 10)){
+                        J.getPileDsc().pushPile(carteJouee);
                         J.getMainJoueur().chercherCarte(carteJouee);
                         compteur.add(etatCompteur.Dsc);
                         return true;
                     }
                     break;
                 case '^' :
-                    if(carteJouee > J.showLastAsc() || carteJouee == (J.showLastAsc() + 10)){
-                        J.setPileAsc(carteJouee);
+                    if(carteJouee > J.getPileAsc().showCarte() || carteJouee == (J.getPileAsc().showCarte() + 10)){
+                        J.getPileAsc().pushPile(carteJouee);
                         J.getMainJoueur().chercherCarte(carteJouee);
                         compteur.add(etatCompteur.Asc);
                         return true;
@@ -80,16 +80,16 @@ public class Application {
         for(int i = 0; i < compteur.size(); ++i){
             switch (compteur.get(i)){
                 case Asc:
-                    J.getMainJoueur().setCarteMain(J.getPileAsc());
+                    J.getMainJoueur().setCarteMain(J.getPileAsc().getCarte());
                     break;
                 case Dsc:
-                    J.getMainJoueur().setCarteMain(J.getPileDsc());
+                    J.getMainJoueur().setCarteMain(J.getPileDsc().getCarte());
                     break;
                 case AscAd:
-                    J.getMainJoueur().setCarteMain(J2.getPileAsc());
+                    J.getMainJoueur().setCarteMain(J2.getPileAsc().getCarte());
                     break;
                 case DscAd:
-                    J.getMainJoueur().setCarteMain(J2.getPileDsc());
+                    J.getMainJoueur().setCarteMain(J2.getPileDsc().getCarte());
                     break;
             }
         }

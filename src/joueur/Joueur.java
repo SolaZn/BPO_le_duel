@@ -4,11 +4,10 @@ import java.util.Stack;
 
 public class Joueur {
     private String nomJoueur;
-    private Stack<Integer> pileAsc;
-    private Stack<Integer> pileDsc;
+    private PileJ pileAsc;
+    private PileJ pileDsc;
     private MainJ mainJoueur;
     private Pioche piocheJoueur;
-
     private boolean jeuHostile;
     private boolean gagnant;
 
@@ -29,14 +28,6 @@ public class Joueur {
         return nomJoueur;
     }
 
-    public int showLastAsc(){
-        return this.pileAsc.peek();
-    }
-    public int showLastDsc(){
-        return this.pileDsc.peek();
-    }
-
-
     // fin main
 
     // Coder la fonction qui permettra de jouer une carte provenant de la main
@@ -44,47 +35,32 @@ public class Joueur {
     // de la méthode move/delete? dans LinkedList. Et pouvoir la remettre en cas d'échec du tour
 
     private void initialiserPiles(){
-        this.pileDsc = new Stack<>();
-        this.pileAsc = new Stack<>();
+        this.pileDsc = new PileJ();
+        this.pileAsc = new PileJ();
 
-        this.pileDsc.push(60);
-        this.pileAsc.push(1);
+        this.pileDsc.pushPile(60);
+        this.pileAsc.pushPile(1);
     }
 
     private String affichePiles(){
         String a = "^[";
-        a += String.valueOf(this.pileAsc.peek());
+        a += String.valueOf(this.pileAsc.showCarte());
         a += "] v[";
-        a += String.valueOf(this.pileDsc.peek());
+        a += String.valueOf(this.pileDsc.showCarte());
         a += "]";
-
         return a;
-    }
-
-    public void setPileDsc(int numero){
-        this.pileDsc.push(numero);
-    }
-    public int getPileDsc(){
-        int carte = this.pileDsc.peek();
-        this.pileDsc.pop();
-        return carte;
-    }
-    public void setPileAsc(int numero){
-        this.pileAsc.push(numero);
-    }
-    public int getPileAsc(){
-        int carte = this.pileAsc.peek();
-        this.pileAsc.pop();
-        return carte;
     }
 
     public Pioche getPioche(){
         return this.piocheJoueur;
     }
-
-    public MainJ getMainJoueur(){
-        return this.mainJoueur;
+    public PileJ getPileAsc(){
+        return this.pileAsc;
     }
+    public PileJ getPileDsc(){
+        return this.pileDsc;
+    }
+    public MainJ getMainJoueur(){ return this.mainJoueur; }
 
     public String toString() {
         return nomJoueur + " " +
