@@ -44,8 +44,14 @@ public class Joueur {
 
     private String affichePiles(){
         String a = "^[";
+        if (this.pileAsc.showCarte() < 10) {
+            a += "0";
+        }
         a += String.valueOf(this.pileAsc.showCarte());
         a += "] v[";
+        if (this.pileDsc.showCarte() < 10) {
+            a += "0";
+        }
         a += String.valueOf(this.pileDsc.showCarte());
         a += "]";
         return a;

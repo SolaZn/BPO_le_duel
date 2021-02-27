@@ -15,6 +15,9 @@ public class MainJ {
     public String toString(Joueur J){
         StringBuilder a = new StringBuilder("cartes " + J.getNom() + " { ");
         for(int i = 0; i < this.main.size(); ++i){
+            if (this.main.get(i) < 10) {
+                a.append("0");
+            }
             a.append(this.main.get(i));
             a.append(" ");
         }
@@ -38,8 +41,8 @@ public class MainJ {
         this.main.add(carte);
     }
 
-    public void remplirMain(Joueur J){
-        int nbCartesAPiocher = 0;
+    public int remplirMain(Joueur J){
+        int nbCartesAPiocher;
         boolean aJoueAilleurs = J.getJeuHostile();
         if (aJoueAilleurs){
             nbCartesAPiocher = 6 - this.main.size();
@@ -50,6 +53,7 @@ public class MainJ {
         for(int i = 0; i < nbCartesAPiocher; ++i) {
             this.main.add(J.getPioche().getCartePioche());
         }
+        return nbCartesAPiocher;
     }
 
     public int showCarteMain(int idx){

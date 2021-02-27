@@ -95,7 +95,8 @@ public class Application {
         }
     }
 
-    private static void tour(Joueur J, Joueur J2){
+    private static boolean tour(Joueur J, Joueur J2){
+        // séparer pour rendre flexible ?
         if(J.getNom().equals("NORD")) {
             System.out.println(J.toString());
             System.out.println(J2.toString());
@@ -107,6 +108,8 @@ public class Application {
 
         System.out.println(J.getMainJoueur().toString(J));
         int nbEssais = 0;
+        int nbIterations = 0;
+        int nbCartesPiochees = 0;
         boolean coupValide = false;
 
         do {
@@ -118,7 +121,6 @@ public class Application {
 
             nbEssais++;
 
-            // separer
             Scanner sc = new Scanner(System.in);
             String s = sc.nextLine();
             String[] tab = s.split("\\s+");
@@ -152,7 +154,8 @@ public class Application {
                                 alors on joue et on modifie
                                     alors on l'enlève soit de J soit de J2' et on la remets etc...*/
             LinkedList<etatCompteur> Compteur = new LinkedList<>();
-            int nbIterations = 0;
+            nbIterations = 0;
+
             for(int i = 0; i < intTab.length; ++i){
                 if(jouer(intTab[i], tab[i], J, J2, Compteur)) {
                     ++nbIterations;
@@ -176,6 +179,29 @@ public class Application {
 
             // pouvoir revenir en arrière sur les cartes en cas de jeu faux pour cause de cartes mal posées
         }while (!coupValide);
+
+        if (!partieGagnee(J)) {
+            if (!J.getPioche().isEmpty())
+                nbCartesPiochees = J.getMainJoueur().remplirMain(J);
+            J.setJeuHostile(false);
+            System.out.println(nbIterations + " cartes posées, " + nbCartesPiochees + " cartes piochées");
+
+            return true; // la partie n'est pas finie -> le jeu continue
+
+        } else {
+            // voir plus haut, séparer pour rendre flexible !
+            if (J2.getNom().equals("NORD")) {
+                System.out.println(J.toString());
+                System.out.println(J2.toString());
+            } else {
+                System.out.println(J2.toString());
+                System.out.println(J.toString());
+            }
+
+            System.out.println(J2.getMainJoueur().toString(J2));
+
+            return false; // la partie est finie -> le jeu s'arrêtera avant le prochain tour
+        }
     }
 
     private static boolean partieGagnee(Joueur J){
@@ -183,6 +209,7 @@ public class Application {
             J.setGagnant();
             return true;
         }
+        // AJOUTER LES CAS OU LE JOUEUR NE PEUT PLUS JOUER
         return false;
     }
 
@@ -193,13 +220,9 @@ public class Application {
         for(;;){
             //Nord joue
             if (j.getMainJoueur().getTailleMain() >= 2) {
-                tour(j, j2);
-                if (partieGagnee(j)) { // partiefinie vérifie à la fois la victoire de J1
+                if (!tour(j, j2)){ // si l'état du tour donne faux (partie perdue) -> le jeu s'interrompt
                     break;
                 }
-                if (!j.getPioche().isEmpty())
-                    j.getMainJoueur().remplirMain(j);
-                j.setJeuHostile(false);
             } else {
 
                 break;
@@ -207,21 +230,18 @@ public class Application {
 
             //Sud joue
             if (j2.getMainJoueur().getTailleMain() >= 2) {
-                tour(j2, j);
-                if (partieGagnee(j2)) { // partiefinie vérifie à la fois la victoire de J2
+                if (!tour(j2, j)){ // si l'état du tour donne faux (partie perdue) -> le jeu s'interrompt
                     break;
                 }
-                if (!j2.getPioche().isEmpty())
-                    j2.getMainJoueur().remplirMain(j2);
-                j2.setJeuHostile(false);
-            } else {
+            }
+            else {
                 break;
             }
         }
 
         if(j.isGagnant()){
-            System.out.println(j.getNom() + " est le gagnant de la partie !");
+            System.out.println("partie finie, " + j.getNom() + " a gagné");
         }else
-            System.out.println(j2.getNom() + " est le gagnant de la partie !");
+            System.out.println("partie finie, " + j2.getNom() + " a gagné");
     }
 }
