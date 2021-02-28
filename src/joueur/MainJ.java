@@ -1,5 +1,6 @@
 package joueur;
 
+import java.util.Collections;
 import java.util.LinkedList;
 
 public class MainJ {
@@ -10,6 +11,10 @@ public class MainJ {
         for(int i = 0; i < 6; ++i) {
             this.main.add(J.getPioche().getCartePioche());
         }
+    }
+
+    public void rangerMain(){
+        Collections.sort(this.main);
     }
 
     public String toString(Joueur J){
@@ -29,12 +34,14 @@ public class MainJ {
         this.main.remove(idx);
     }
 
-    public void chercherCarte(int carteAChercher){
+    public boolean chercherCarte(int carteAChercher){
         for(int i = 0; i < this.main.size(); ++i){
             if(carteAChercher == this.main.get(i)){
                 jouerCarteMain(i);
+                return true;
             }
         }
+        return false;
     }
 
     public void setCarteMain(int carte){

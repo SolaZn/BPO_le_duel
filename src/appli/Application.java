@@ -16,8 +16,9 @@ public class Application {
                 switch (Carte.charAt(2)){
                     case 'v' :
                         if(carteJouee > J2.getPileDsc().showCarte()){
+                            if (!J.getMainJoueur().chercherCarte(carteJouee))
+                                return false;
                             J2.getPileDsc().pushPile(carteJouee);
-                            J.getMainJoueur().chercherCarte(carteJouee);
                             compteur.add(etatCompteur.DscAd);
                             J.setJeuHostile(true);
                             return true;
@@ -25,8 +26,9 @@ public class Application {
                         break;
                     case '^' :
                         if(carteJouee < J2.getPileAsc().showCarte()){
+                            if(!(J.getMainJoueur().chercherCarte(carteJouee)))
+                                return false;
                             J2.getPileAsc().pushPile(carteJouee);
-                            J.getMainJoueur().chercherCarte(carteJouee);
                             compteur.add(etatCompteur.AscAd);
                             J.setJeuHostile(true);
                             return true;
@@ -41,17 +43,19 @@ public class Application {
         else{
             switch (Carte.charAt(2)){
                 case 'v' :
-                    if(carteJouee < J.getPileDsc().showCarte() || carteJouee == (J.getPileDsc().showCarte() - 10)){
+                    if(carteJouee < J.getPileDsc().showCarte() || carteJouee == (J.getPileDsc().showCarte() + 10)){
+                        if(!(J.getMainJoueur().chercherCarte(carteJouee)))
+                            return false;
                         J.getPileDsc().pushPile(carteJouee);
-                        J.getMainJoueur().chercherCarte(carteJouee);
                         compteur.add(etatCompteur.Dsc);
                         return true;
                     }
                     break;
                 case '^' :
-                    if(carteJouee > J.getPileAsc().showCarte() || carteJouee == (J.getPileAsc().showCarte() + 10)){
+                    if(carteJouee > J.getPileAsc().showCarte() || carteJouee == (J.getPileAsc().showCarte() - 10)){
+                        if(!(J.getMainJoueur().chercherCarte(carteJouee)))
+                            return false;
                         J.getPileAsc().pushPile(carteJouee);
-                        J.getMainJoueur().chercherCarte(carteJouee);
                         compteur.add(etatCompteur.Asc);
                         return true;
                     }
@@ -96,6 +100,8 @@ public class Application {
     }
 
     private static boolean tour(Joueur J, Joueur J2){
+        J.getMainJoueur().rangerMain();
+        J2.getMainJoueur().rangerMain();
         // séparer pour rendre flexible ?
         if(J.getNom().equals("NORD")) {
             System.out.println(J.toString());
@@ -108,9 +114,14 @@ public class Application {
 
         System.out.println(J.getMainJoueur().toString(J));
         int nbEssais = 0;
-        int nbIterations = 0;
+        int nbCartePoser = 0;
         int nbCartesPiochees = 0;
         boolean coupValide = false;
+
+        if(!possibiliteJouer(J, J2)){
+            J2.setGagnant();
+            return false; // la partie est finie -> le jeu s'arrêtera avant le prochain tour
+        }
 
         do {
             if (nbEssais == 0){
@@ -130,15 +141,18 @@ public class Application {
             }
 
             int[] intTab = new int[tab.length];
-
-            for (int i = 0; i < tab.length; ++i) {
-                // try sinon catch sur la conversion en int (qui pourra sortir de la boucle et forcer l'utilisateur
-                // a recommencer sa saisie)
-                // try this
-                intTab[i] = Integer.parseInt(String.valueOf(tab[i].charAt(0)));
-                intTab[i] *= 10;
-                intTab[i] += Integer.parseInt(String.valueOf(tab[i].charAt(1)));
-                // or if failed, go outside and retry
+            try {
+                for (int i = 0; i < tab.length; ++i) {
+                    // try sinon catch sur la conversion en int (qui pourra sortir de la boucle et forcer l'utilisateur
+                    // a recommencer sa saisie)
+                    // try this
+                    intTab[i] = Integer.parseInt(String.valueOf(tab[i].charAt(0)));
+                    intTab[i] *= 10;
+                    intTab[i] += Integer.parseInt(String.valueOf(tab[i].charAt(1)));
+                    // or if failed, go outside and retry
+                }
+            }catch(NumberFormatException e){
+                continue;
             }
 
             if (!verifCarte(intTab, J)){
@@ -154,11 +168,10 @@ public class Application {
                                 alors on joue et on modifie
                                     alors on l'enlève soit de J soit de J2' et on la remets etc...*/
             LinkedList<etatCompteur> Compteur = new LinkedList<>();
-            nbIterations = 0;
-
-            for(int i = 0; i < intTab.length; ++i){
-                if(jouer(intTab[i], tab[i], J, J2, Compteur)) {
-                    ++nbIterations;
+            nbCartePoser = 0;
+            for (int i = 0; i < intTab.length; ++i) {
+                if (jouer(intTab[i], tab[i], J, J2, Compteur)) {
+                    ++nbCartePoser;
                 }
             }
 
@@ -170,7 +183,7 @@ public class Application {
                 }
             }
 
-            if(nbIterations == intTab.length && nbCarteAd <= 1){
+            if(nbCartePoser == intTab.length && nbCarteAd <= 1){
                 coupValide = true;
             }
             else {
@@ -184,7 +197,7 @@ public class Application {
             if (!J.getPioche().isEmpty())
                 nbCartesPiochees = J.getMainJoueur().remplirMain(J);
             J.setJeuHostile(false);
-            System.out.println(nbIterations + " cartes posées, " + nbCartesPiochees + " cartes piochées");
+            System.out.println(nbCartePoser + " cartes posées, " + nbCartesPiochees + " cartes piochées");
 
             return true; // la partie n'est pas finie -> le jeu continue
 
@@ -202,6 +215,29 @@ public class Application {
 
             return false; // la partie est finie -> le jeu s'arrêtera avant le prochain tour
         }
+    }
+
+    private static boolean possibiliteJouer(Joueur J, Joueur J2) {
+        int cartePossible = 0;
+        for (int i = 0; i < J.getMainJoueur().getTailleMain(); ++i) {
+            if (J.getMainJoueur().showCarteMain(i) < J.getPileDsc().showCarte() || J.getMainJoueur().showCarteMain(i) == J.getPileDsc().showCarte() + 10) {
+                ++cartePossible;
+            }
+            if (J.getMainJoueur().showCarteMain(i) > J.getPileAsc().showCarte() || J.getMainJoueur().showCarteMain(i) == J.getPileAsc().showCarte() - 10) {
+                ++cartePossible;
+            }
+        }
+        for (int i = 0; i < J.getMainJoueur().getTailleMain(); ++i) {
+            if (J.getMainJoueur().showCarteMain(i) > J2.getPileDsc().showCarte()) {
+                ++cartePossible;
+                break;
+            }
+            if (J.getMainJoueur().showCarteMain(i) < J2.getPileAsc().showCarte()) {
+                ++cartePossible;
+                break;
+            }
+        }
+        return cartePossible >= 2;
     }
 
     private static boolean partieGagnee(Joueur J){
