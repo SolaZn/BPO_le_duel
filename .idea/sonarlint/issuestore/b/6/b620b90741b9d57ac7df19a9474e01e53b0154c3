@@ -1,0 +1,42 @@
+
+e	java:S117f"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¡Ü–{
+f	java:S117S"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(úâ³æ
+l	java:S117ó"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(©Ç¡øÿÿÿÿ
+h
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 44 to the 15 allowed.(õ¡ƒù
+l	java:S117Ü"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(É¿•ûÿÿÿÿ
+e	java:S117f"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¡Ü–{
+l	java:S117Ü"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(É¿•ûÿÿÿÿ
+g	java:S117ª"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¡´˜Ø
+t	java:S115	"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(¬‰©Ûøÿÿÿÿ
+f	java:S117S"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(úâ³æ
+T	java:S106Ò"9Replace this use of System.out or System.err by a logger.(÷¦ÿŞûÿÿÿÿ
+S	java:S106s"9Replace this use of System.out or System.err by a logger.(ùç¬ºûÿÿÿÿ
+t	java:S115	"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(¬‰©Ûøÿÿÿÿ
+t
+java:S2234Œ"VParameters to tour have the same names but not the same order as the method arguments.(„ÏÓ¢8èËŞñş.
+T	java:S106Ó"9Replace this use of System.out or System.err by a logger.(ÓÃ¯øÿÿÿÿ
+s	java:S135~"YReduce the total number of break and continue statements in this loop to use at most one.(ü§è½ùÿÿÿÿ
+T	java:S106Ğ"9Replace this use of System.out or System.err by a logger.(÷¦ÿŞûÿÿÿÿ
+g
+java:S3776f"RRefactor this method to reduce its Cognitive Complexity from 37 to the 15 allowed.(¡Ü–{
+O	java:S106ƒ"9Replace this use of System.out or System.err by a logger.(‘ıãÆ
+S	java:S106k"9Replace this use of System.out or System.err by a logger.(ÓÃ¯øÿÿÿÿ
+f	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(õ¡ƒù
+f	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(õ¡ƒù
+f	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(õ¡ƒù
+O	java:S106È"9Replace this use of System.out or System.err by a logger.(¦›–Ó
+t	java:S135æ"YReduce the total number of break and continue statements in this loop to use at most one.(Øš²²ıÿÿÿÿ
+S	java:S106o"9Replace this use of System.out or System.err by a logger.(÷¦ÿŞûÿÿÿÿ
+S	java:S106p"9Replace this use of System.out or System.err by a logger.(ÓÃ¯øÿÿÿÿ
+T	java:S106€"9Replace this use of System.out or System.err by a logger.(›Äæ÷üÿÿÿÿ
+S	java:S106l"9Replace this use of System.out or System.err by a logger.(÷¦ÿŞûÿÿÿÿ
+t	java:S115	"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(¬‰©Ûøÿÿÿÿ
+o	java:S135€"YReduce the total number of break and continue statements in this loop to use at most one.(´ÿÕ™
+W	java:S125¡"<This block of commented-out lines of code should be removed.(šæÁıÿÿÿÿ
+T	java:S106Ï"9Replace this use of System.out or System.err by a logger.(ÓÃ¯øÿÿÿÿ
+T	java:S106Ö"9Replace this use of System.out or System.err by a logger.(–ÜÏ«ıÿÿÿÿ
+O	java:S106˜"9Replace this use of System.out or System.err by a logger.(²ûÈ€
+N	java:S106–"9Replace this use of System.out or System.err by a logger.(²ò•R
+e	java:S117E"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ô„ª?
+t	java:S115	"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(¬‰©Ûøÿÿÿÿ

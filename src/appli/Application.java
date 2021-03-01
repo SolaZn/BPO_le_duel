@@ -260,7 +260,6 @@ public class Application {
                     break;
                 }
             } else {
-
                 break;
             }
 

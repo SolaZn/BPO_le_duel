@@ -30,9 +30,9 @@ public class Pioche {
     }
 
     public int getCartePioche() {
-        int carte_tiree = this.pilePioche.peek();
+        int carteTiree = this.pilePioche.peek();
         this.pilePioche.pop();
         this.nbCartes--;
-        return carte_tiree;
+        return carteTiree;
     }
 }
