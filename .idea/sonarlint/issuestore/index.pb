@@ -1,11 +1,13 @@
 
->
-BPO_leduel.iml,3\2\32f3a25637abd70f959932a351731c83198d6a6e
-F
-src/joueur/Joueur.java,f\3\f3ccf8252d8fe3bf9bfcc93b11a5b07e57ce1b61
-F
-src/joueur/Pioche.java,c\4\c4b37e2ba6d00906a15db6be940a7bb8f0d60544
+D
+src/Jeu/PiocheJ.java,3\2\32425aeb44607625330441de7e7235c2ba0c0546
+B
+src/Jeu/PileJ.java,a\c\ac33eff03d0e1bb35c07ef4529b1655c132d8799
+C
+src/Jeu/Joueur.java,3\a\3a8d04e88425a31126a1efbdb9d9ee4e2409ec41
 J
 src/appli/Application.java,b\6\b620b90741b9d57ac7df19a9474e01e53b0154c3
-E
-src/joueur/MainJ.java,1\2\12db7dfa0f555de026f53858eb794056abed3640
+B
+src/Jeu/MainJ.java,8\0\80be743ddd8cdc802aac8a58008e15e64a72d078
+C
+src/Jeu/Partie.java,3\0\30617102050a777998b873b904e06f299d97b418

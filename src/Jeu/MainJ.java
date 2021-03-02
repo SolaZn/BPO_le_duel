@@ -1,19 +1,19 @@
-package joueur;
+package Jeu;
 
 import java.util.Collections;
 import java.util.LinkedList;
 
-public class MainJ {
+class MainJ {
     private LinkedList<Integer> main;
 
-    public MainJ(Joueur J){
+    MainJ(Joueur J){
         this.main = new LinkedList<>();
         for(int i = 0; i < 6; ++i) {
             this.main.add(J.getPioche().getCartePioche());
         }
     }
 
-    public void rangerMain(){
+    void rangerMain(){
         Collections.sort(this.main);
     }
 
@@ -30,11 +30,11 @@ public class MainJ {
         return a.toString();
     }
 
-    public void jouerCarteMain(int idx){
+    void jouerCarteMain(int idx){
         this.main.remove(idx);
     }
 
-    public boolean chercherCarte(int carteAChercher){
+    boolean chercherCarte(int carteAChercher){
         for(int i = 0; i < this.main.size(); ++i){
             if(carteAChercher == this.main.get(i)){
                 jouerCarteMain(i);
@@ -44,11 +44,11 @@ public class MainJ {
         return false;
     }
 
-    public void setCarteMain(int carte){
+    void setCarteMain(int carte){
         this.main.add(carte);
     }
 
-    public int remplirMain(Joueur J){
+    int remplirMain(Joueur J){
         int nbCartesAPiocher;
         boolean aJoueAilleurs = J.getJeuHostile();
         if (aJoueAilleurs){
@@ -63,15 +63,15 @@ public class MainJ {
         return nbCartesAPiocher;
     }
 
-    public int showCarteMain(int idx){
+    int showCarteMain(int idx){
         return this.main.get(idx);
     }
 
-    public int getTailleMain(){
+    int getTailleMain(){
         return this.main.size();
     }
 
-    public boolean isEmpty(){
+    boolean isEmpty(){
         return this.main.size() == 0;
     }
 }

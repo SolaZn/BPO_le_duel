@@ -1,13 +1,13 @@
-package joueur;
+package Jeu;
 
 import java.util.Collections;
 import java.util.Stack;
 
-public class Pioche {
+class PiocheJ {
     private Stack<Integer> pilePioche;
     private int nbCartes;
 
-    public Pioche(){
+    PiocheJ(){
         this.pilePioche = new Stack<>();
         this.nbCartes = 0;
         initialiserPioche();
@@ -21,15 +21,15 @@ public class Pioche {
         Collections.shuffle(pilePioche);
     }
 
-    public int getNbCartes(){
+    int getNbCartes(){
         return this.nbCartes;
     }
 
-    public boolean isEmpty(){
+    boolean isEmpty(){
         return this.nbCartes == 0;
     }
 
-    public int getCartePioche() {
+    int getCartePioche() {
         int carteTiree = this.pilePioche.peek();
         this.pilePioche.pop();
         this.nbCartes--;
