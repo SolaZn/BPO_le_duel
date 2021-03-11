@@ -1,38 +1,34 @@
 package Jeu;
 
 import java.util.Collections;
-import java.util.Stack;
+import java.util.LinkedList;
 
 class PiocheJ {
-    private Stack<Integer> pilePioche;
-    private int nbCartes;
+    private LinkedList<Integer> pilePioche;
 
     PiocheJ(){
-        this.pilePioche = new Stack<>();
-        this.nbCartes = 0;
+        this.pilePioche = new LinkedList<>();
         initialiserPioche();
     }
 
     private void initialiserPioche(){
         for (int i = 2; i <= 59; ++i){
             this.pilePioche.push(i);
-            this.nbCartes++;
         }
         Collections.shuffle(pilePioche);
     }
 
     int getNbCartes(){
-        return this.nbCartes;
+        return this.pilePioche.size();
     }
 
     boolean isEmpty(){
-        return this.nbCartes == 0;
+        return this.pilePioche.size() == 0;
     }
 
     int getCartePioche() {
         int carteTiree = this.pilePioche.peek();
         this.pilePioche.pop();
-        this.nbCartes--;
         return carteTiree;
     }
 }

@@ -56,9 +56,19 @@ class MainJ {
         }
         else
             nbCartesAPiocher = 2;
-
-        for(int i = 0; i < nbCartesAPiocher; ++i) {
-            this.main.add(J.getPioche().getCartePioche());
+        if(J.getPioche().getNbCartes() >= nbCartesAPiocher) {
+            for (int i = 0; i < nbCartesAPiocher; ++i) {
+                this.main.add(J.getPioche().getCartePioche());
+            }
+        }
+        else if (!(J.getPioche().isEmpty())){
+            nbCartesAPiocher = J.getPioche().getNbCartes();
+            while (!(J.getPioche().isEmpty())) {
+                this.main.add(J.getPioche().getCartePioche());
+            }
+        }
+        else{
+            return 0;
         }
         return nbCartesAPiocher;
     }

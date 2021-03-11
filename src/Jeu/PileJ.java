@@ -1,12 +1,12 @@
 package Jeu;
 
-import java.util.Stack;
+import java.util.LinkedList;
 
 class PileJ {
-    private Stack<Integer> pile;
+    private LinkedList<Integer> pile;
 
     PileJ(){
-        this.pile = new Stack<>();
+        this.pile = new LinkedList<>();
     }
 
     void pushPile(int carte){ this.pile.push(carte); }

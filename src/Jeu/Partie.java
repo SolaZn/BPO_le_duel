@@ -165,11 +165,11 @@ public class Partie {
         } else {
             // voir plus haut, séparer pour rendre flexible !
             if (J2.getNom().equals("NORD")) {
-                System.out.println(J.toString());
                 System.out.println(J2.toString());
+                System.out.println(J.toString());
             } else {
-                System.out.println(J2.toString());
                 System.out.println(J.toString());
+                System.out.println(J2.toString());
             }
 
             System.out.println(J2.getMainJoueur().toString(J2));
