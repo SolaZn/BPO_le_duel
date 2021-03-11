@@ -45,7 +45,9 @@ class MainJ {
     }
 
     void setCarteMain(int carte){
-        this.main.add(carte);
+        if(this.main.size() < 6) {
+            this.main.add(carte);
+        }
     }
 
     int remplirMain(Joueur J){
@@ -82,6 +84,6 @@ class MainJ {
     }
 
     boolean isEmpty(){
-        return this.main.size() == 0;
+        return this.main.isEmpty();
     }
 }

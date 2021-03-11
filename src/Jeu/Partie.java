@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Partie {
     enum etatCompteur{ASC, DSC, ASCAD, DSCAD}
 
-    private boolean jouer(int carteJouee, String Carte, Joueur J, Joueur J2, LinkedList<etatCompteur> compteur){
+    protected static boolean jouer(int carteJouee, String Carte, Joueur J, Joueur J2, LinkedList<etatCompteur> compteur){
         // ajouter les retraits de carte de la main du joueur après qu'elles aient été posées
         // + les règles de remplissage de la main en fonction de là où la carte a été posée
         if(Carte.length() == 4){
@@ -69,7 +69,7 @@ public class Partie {
         return false;
     }
 
-    public boolean tour(Joueur J, Joueur J2){
+    static boolean tour(Joueur J, Joueur J2){
         J.getMainJoueur().rangerMain();
         J2.getMainJoueur().rangerMain();
         // séparer pour rendre flexible ?
@@ -178,7 +178,7 @@ public class Partie {
         }
     }
 
-    public void lancerPartie(Joueur joueur1, Joueur joueur2){
+    public static void lancerPartie(Joueur joueur1, Joueur joueur2){
         for(;;) {
             //Nord joue
             if (joueur1.getMainJoueur().getTailleMain() >= 2) {

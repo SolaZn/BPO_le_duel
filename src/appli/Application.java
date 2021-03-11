@@ -8,9 +8,7 @@ public class Application {
         Joueur j = new Joueur("NORD");
         Joueur j2 = new Joueur("SUD");
 
-        Partie partieDuel = new Partie();
-
-        partieDuel.lancerPartie(j,j2);
+        Partie.lancerPartie(j,j2);
 
         if(j.isGagnant()){
             System.out.println("partie finie, " + j.getNom() + " a gagné");
