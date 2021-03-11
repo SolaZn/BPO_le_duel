@@ -1,27 +1,27 @@
 
 k	java:S117	"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‚¼¡—şÿÿÿÿ
-m
-java:S3776	"RRefactor this method to reduce its Cognitive Complexity from 46 to the 15 allowed.(‚¼¡—şÿÿÿÿ
+Z	java:S106M"9Replace this use of System.out or System.err by a logger.(ÓÃ¯øÿÿÿÿ8úøï¤ÿ.
+Z	java:S106N"9Replace this use of System.out or System.err by a logger.(÷¦ÿŞûÿÿÿÿ8úøï¤ÿ.
+n	java:S117ƒ"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¡´˜Ø8úøï¤ÿ.
 k	java:S117	"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‚¼¡—şÿÿÿÿ
 Z	java:S106b"9Replace this use of System.out or System.err by a logger.(›Äæ÷üÿÿÿÿ8úøï¤ÿ.
 r	java:S117H"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¿Šàºøÿÿÿÿ8úøï¤ÿ.
-U	java:S106e"9Replace this use of System.out or System.err by a logger.(‘ıãÆ8úøï¤ÿ.
-[	java:S106¯"9Replace this use of System.out or System.err by a logger.(–ÜÏ«ıÿÿÿÿ8úøï¤ÿ.
-[	java:S106¬"9Replace this use of System.out or System.err by a logger.(ÓÃ¯øÿÿÿÿ8úøï¤ÿ.
+z	java:S135`"YReduce the total number of break and continue statements in this loop to use at most one.(ü§è½ùÿÿÿÿ8úøï¤ÿ.
+k	java:S117	"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‚¼¡—şÿÿÿÿ
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(íÄ£Íüÿÿÿÿ
 Z	java:S106Q"9Replace this use of System.out or System.err by a logger.(÷¦ÿŞûÿÿÿÿ8úøï¤ÿ.
-v	java:S135¶"YReduce the total number of break and continue statements in this loop to use at most one.(´ÿÕ™8ŸÊÀ¥ÿ.
-Z	java:S106U"9Replace this use of System.out or System.err by a logger.(ùç¬ºûÿÿÿÿ8úøï¤ÿ.
-[	java:S106©"9Replace this use of System.out or System.err by a logger.(÷¦ÿŞûÿÿÿÿ8úøï¤ÿ.
-Z	java:S106M"9Replace this use of System.out or System.err by a logger.(ÓÃ¯øÿÿÿÿ8úøï¤ÿ.
-[	java:S106¨"9Replace this use of System.out or System.err by a logger.(ÓÃ¯øÿÿÿÿ8úøï¤ÿ.
+Z	java:S106R"9Replace this use of System.out or System.err by a logger.(ÓÃ¯øÿÿÿÿ8úøï¤ÿ.
 r	java:S117H"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¿Šàºøÿÿÿÿ8úøï¤ÿ.
+m
+java:S3776	"RRefactor this method to reduce its Cognitive Complexity from 46 to the 15 allowed.(‚¼¡—şÿÿÿÿ
+v	java:S135¶"YReduce the total number of break and continue statements in this loop to use at most one.(´ÿÕ™8ŸÊÀ¥ÿ.
 t
 java:S3776H"RRefactor this method to reduce its Cognitive Complexity from 37 to the 15 allowed.(¿Šàºøÿÿÿÿ8úøï¤ÿ.
-Z	java:S106N"9Replace this use of System.out or System.err by a logger.(÷¦ÿŞûÿÿÿÿ8úøï¤ÿ.
-t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(íÄ£Íüÿÿÿÿ
-k	java:S117	"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‚¼¡—şÿÿÿÿ
-n	java:S117ƒ"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¡´˜Ø8úøï¤ÿ.
-z	java:S135`"YReduce the total number of break and continue statements in this loop to use at most one.(ü§è½ùÿÿÿÿ8úøï¤ÿ.
-[	java:S106«"9Replace this use of System.out or System.err by a logger.(÷¦ÿŞûÿÿÿÿ8úøï¤ÿ.
+Z	java:S106U"9Replace this use of System.out or System.err by a logger.(ùç¬ºûÿÿÿÿ8úøï¤ÿ.
+U	java:S106e"9Replace this use of System.out or System.err by a logger.(‘ıãÆ8úøï¤ÿ.
 V	java:S106¡"9Replace this use of System.out or System.err by a logger.(¦›–Ó8úøï¤ÿ.
-Z	java:S106R"9Replace this use of System.out or System.err by a logger.(ÓÃ¯øÿÿÿÿ8úøï¤ÿ.
+[	java:S106¨"9Replace this use of System.out or System.err by a logger.(÷¦ÿŞûÿÿÿÿ8úøï¤ÿ.
+[	java:S106¯"9Replace this use of System.out or System.err by a logger.(–ÜÏ«ıÿÿÿÿ8úøï¤ÿ.
+[	java:S106©"9Replace this use of System.out or System.err by a logger.(ÓÃ¯øÿÿÿÿ8Â£Ò”‚/
+[	java:S106«"9Replace this use of System.out or System.err by a logger.(ÓÃ¯øÿÿÿÿ8Â£Ò”‚/
+[	java:S106¬"9Replace this use of System.out or System.err by a logger.(÷¦ÿŞûÿÿÿÿ8Â£Ò”‚/

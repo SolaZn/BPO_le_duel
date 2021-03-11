@@ -11,3 +11,5 @@ B
 src/Jeu/MainJ.java,8\0\80be743ddd8cdc802aac8a58008e15e64a72d078
 C
 src/Jeu/Partie.java,3\0\30617102050a777998b873b904e06f299d97b418
+>
+BPO_leduel.iml,3\2\32f3a25637abd70f959932a351731c83198d6a6e

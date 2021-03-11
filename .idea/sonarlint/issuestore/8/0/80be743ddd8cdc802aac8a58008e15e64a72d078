@@ -1,7 +1,7 @@
 
+f	java:S117	"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(šÿ¨“
+T
+java:S1155U">Use isEmpty() to check whether the collection is empty or not.(õ«âñ
+f	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ßàÇ
 f	java:S1173"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(â×ÝË
 t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(íÄ£Íüÿÿÿÿ
-f	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ßàÇ
-T
-java:S1155K">Use isEmpty() to check whether the collection is empty or not.(õ«âñ
-f	java:S117	"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(šÿ¨“
