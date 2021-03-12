@@ -5,7 +5,9 @@ import java.util.LinkedList;
 
 /**
  * La classe PiocheJ représente la pioche qu'un joueur peut utiliser pour piocher ses cartes.
- * Y sont représentés sa contenance et les manières de la manip
+ * Y sont représentés sa contenance et les manières de la manipuler.
+ *
+ * @author Slim BEN DAALI et Anthony ZAKANI
  */
 class PiocheJ {
     /** Représente la liste chaînée d'entiers correspondant
