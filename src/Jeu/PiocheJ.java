@@ -15,7 +15,7 @@ class PiocheJ {
     private LinkedList<Integer> pilePioche;
 
     /**
-     * @brief Initialise la pioche
+     *  Initialise la pioche
      */
     PiocheJ(){
         this.pilePioche = new LinkedList<>();
@@ -33,7 +33,7 @@ class PiocheJ {
     }
 
     /**
-     * @brief Retourne le nombre de carte dans la pioche
+     *  Retourne le nombre de carte dans la pioche
      * @return le nombre de carte dans la pioche
      */
     int getNbCartes(){
@@ -41,7 +41,7 @@ class PiocheJ {
     }
 
     /**
-     * @brief Retourne si la pioche est vide
+     *  Retourne si la pioche est vide
      * @return vrai si la pioche est vide sinon faux
      */
     boolean isEmpty(){
@@ -49,7 +49,7 @@ class PiocheJ {
     }
 
     /**
-     * @brief Retourne le numéro de la carte en tête et la supprime
+     *  Retourne le numéro de la carte en tête et la supprime
      * @return le numéro de la carte en tête
      */
     int getCartePioche() {

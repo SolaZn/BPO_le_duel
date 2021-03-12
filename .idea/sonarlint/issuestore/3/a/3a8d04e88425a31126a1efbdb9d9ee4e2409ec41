@@ -1,6 +1,6 @@
 
-k	java:S117c"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Õºú“ıÿÿÿÿ
-s	java:S135m"YReduce the total number of break and continue statements in this loop to use at most one.(Òğ’‰şÿÿÿÿ
+s	java:S117±"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Õºú“ıÿÿÿÿ8†¢Æ‚/
+n	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÿ—Œ€8†¢Æ‚/
+{	java:S135»"YReduce the total number of break and continue statements in this loop to use at most one.(Òğ’‰şÿÿÿÿ8†¢Æ‚/
+m	java:S117Ù"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(œÿç8†¢Æ‚/
 t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(íÄ£Íüÿÿÿÿ
-f	java:S117M"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÿ—Œ€
-m	java:S117‚"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(œÿç8·Í˜¥ÿ.

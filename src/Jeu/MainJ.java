@@ -15,7 +15,7 @@ class MainJ {
     private LinkedList<Integer> main;
 
     /**
-     * @brief Initialise la main en la remplissant de six cartes de la pioche
+     *  Initialise la main en la remplissant de six cartes de la pioche
      * @param J Le joueur sur lequel on
      */
     MainJ(Joueur J){
@@ -26,14 +26,14 @@ class MainJ {
     }
 
     /**
-     * @brief Range la main dans l'ordre croissant
+     *  Range la main dans l'ordre croissant
      */
     void rangerMain(){
         Collections.sort(this.main);
     }
 
     /**
-     * @brief Retourne la manière d'afficher la main du joueur
+     *  Retourne la manière d'afficher la main du joueur
      * @param J le joueur
      * @return la manière d'afficher la main
      */
@@ -51,7 +51,7 @@ class MainJ {
     }
 
     /**
-     * @brief Supprime la carte de la main
+     *  Supprime la carte de la main
      * @param idx L'index de la carte dans la main
      */
     void jouerCarteMain(int idx){
@@ -59,7 +59,7 @@ class MainJ {
     }
 
     /**
-     * @brief Ajoute la carte dans la main
+     *  Ajoute la carte dans la main
      * @param carte la carte
      */
     void setCarteMain(int carte){
@@ -69,7 +69,7 @@ class MainJ {
     }
 
     /**
-     * @brief Retourne le numéro de la carte à l'index dans la main
+     *  Retourne le numéro de la carte à l'index dans la main
      * @param idx L'index
      * @return La carte
      */
@@ -78,7 +78,7 @@ class MainJ {
     }
 
     /**
-     * @brief Retourne la taille de la main
+     *  Retourne la taille de la main
      * @return la taille de la main
      */
     int getTailleMain(){
@@ -86,7 +86,7 @@ class MainJ {
     }
 
     /**
-     * @brief Retourne si la carte est vide
+     *  Retourne si la carte est vide
      * @return vrai si la carte est vide sinon faux
      */
     boolean isEmpty(){

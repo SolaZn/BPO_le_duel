@@ -15,7 +15,7 @@ public class Partie {
     enum etatCompteur{ASC, DSC, ASCAD, DSCAD}
 
     /**
-     * @brief Joue la carte sur ca pile ou la pile de l'adversaire
+     *  Joue la carte sur ca pile ou la pile de l'adversaire
      * @param carteJouee La carte jouée
      * @param Carte La carte jouée plus la pile sur laquel jouée
      * @param J Le joueur qui joue
@@ -85,7 +85,7 @@ public class Partie {
     }
 
     /**
-     * @brief Effectue les opérations nécessaires au déroulement d'un tour
+     *  Effectue les opérations nécessaires au déroulement d'un tour
      * @param J désigne le joueur qui joue le tour
      * @param J2 désigne le joueur contre qui le tour est joué
      * @return vrai si le tour suivant doit se produire
@@ -201,7 +201,7 @@ public class Partie {
     }
 
     /**
-     * @brief Permet l'alternance des tours entre les deux joueurs
+     *  Permet l'alternance des tours entre les deux joueurs
      * @param joueur1 le premier joueur à jouer
      * @param joueur2 le second joueur à jouer
      */

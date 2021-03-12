@@ -95,7 +95,7 @@ public class tests {
 
     @Test
     public void possibilitéPoserCarte(){
-        //Verifie que la méthode possibilitéJouerfonctionne bien
+        //Verifie que la méthode possibilitéJouer fonctionne bien
         Joueur J = new Joueur("Cobaye");
         Joueur J2 = new Joueur("Cobaye");
         Assert.assertTrue(J.possibiliteJouer(J2));
@@ -105,7 +105,6 @@ public class tests {
     public void conditionVictoire(){
         //Verifie que les conditions de la victoire sont bien implémentées
         Joueur J = new Joueur("Cobaye");
-        Joueur J2 = new Joueur("Cobaye2");
         int nbCartes = J.getPioche().getNbCartes();
         for (int i = 0 ; i < nbCartes ; ++i){
             J.getPioche().getCartePioche();

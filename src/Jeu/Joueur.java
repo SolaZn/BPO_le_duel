@@ -28,7 +28,7 @@ public class Joueur {
     private boolean gagnant;
 
     /**
-     * @brief Initialise le joueur ainsi que tous ses attributs avec son nom
+     *  Initialise le joueur ainsi que tous ses attributs avec son nom
      * @param nom Le nom du joueur
      */
     public Joueur(String nom){
@@ -41,7 +41,7 @@ public class Joueur {
     }
 
     /**
-     * @brief Retourne le nom du joueur
+     *  Retourne le nom du joueur
      * @return le nom du joueur
      */
     public String getNom() {
@@ -49,7 +49,7 @@ public class Joueur {
     }
 
     /**
-     * @brief Retourne l'etat de l'attribut gagnant
+     *  Retourne l'etat de l'attribut gagnant
      * @return l'etat de l'attribut gagnant
      */
     public boolean isGagnant(){
@@ -57,7 +57,7 @@ public class Joueur {
     }
 
     /**
-     * @brief initialise les piles ascendante et descendante
+     *  initialise les piles ascendante et descendante
      */
     private void initialiserPiles(){
         this.pileDsc = new PileJ();
@@ -68,7 +68,7 @@ public class Joueur {
     }
 
     /**
-     * @brief Retourne la manière d'afficher les piles
+     *  Retourne la manière d'afficher les piles
      * @return La manière d'afficher les piles
      */
     private String affichePiles(){
@@ -87,7 +87,7 @@ public class Joueur {
     }
 
     /**
-     * @brief Retourne la pioche
+     *  Retourne la pioche
      * @return la pioche
      */
     PiocheJ getPioche(){
@@ -95,7 +95,7 @@ public class Joueur {
     }
 
     /**
-     * @brief Retourne la pile ascendante du joueur
+     *  Retourne la pile ascendante du joueur
      * @return la pile ascendante
      */
     PileJ getPileAsc(){
@@ -103,7 +103,7 @@ public class Joueur {
     }
 
     /**
-     * @brief Retourne la pile descendante du joueur
+     *  Retourne la pile descendante du joueur
      * @return la pile descendante
      */
     PileJ getPileDsc(){
@@ -111,13 +111,13 @@ public class Joueur {
     }
 
     /**
-     * @brief Retourne la main du joueur
+     *  Retourne la main du joueur
      * @return la main
      */
     MainJ getMainJoueur(){ return this.mainJoueur; }
 
     /**
-     * @brief Retourne la manière d'afficher le joueur
+     *  Retourne la manière d'afficher le joueur
      * @return la manière d'afficher le joueur
      */
     public String toString() {
@@ -128,14 +128,14 @@ public class Joueur {
     }
 
     /**
-     * @brief Modifie la valeur de l'attribut gagnant a vrai
+     *  Modifie la valeur de l'attribut gagnant a vrai
      */
     void setGagnant(){
         this.gagnant = true;
     }
 
     /**
-     * @brief Modifie l'etat de l'attribut jeuHostile à Etat
+     *  Modifie l'etat de l'attribut jeuHostile à Etat
      * @param Etat l'etat a mettre à l'attribut jeuHostile
      */
     void setJeuHostile(boolean Etat){
@@ -143,7 +143,7 @@ public class Joueur {
     }
 
     /**
-     * @brief Retourne l'etat de l'attribut jeuHostile
+     *  Retourne l'etat de l'attribut jeuHostile
      * @return l'état de l'attribut jeuHostile
      */
     boolean getJeuHostile(){
@@ -151,7 +151,7 @@ public class Joueur {
     }
 
     /**
-     * @brief Vérifie si les cartes jouées sont dans la main
+     *  Vérifie si les cartes jouées sont dans la main
      * @param intTab les cartes jouées
      * @return vrai si les cartes sont existantes, sinon faux
      */
@@ -170,7 +170,7 @@ public class Joueur {
     }
 
     /**
-     * @brief Vérifie si le joueur peut joueur sur ces piles ou les piles de son adversaire lors de son tour
+     *  Vérifie si le joueur peut joueur sur ces piles ou les piles de son adversaire lors de son tour
      * @param J2 L'adversaire
      * @return vrai si le joueur peut jouer sinon faux
      */
@@ -198,7 +198,7 @@ public class Joueur {
     }
 
     /**
-     * @brief Vérifie si le joueur a gagné la partie
+     *  Vérifie si le joueur a gagné la partie
      * @return vrai si le joueur a gagné sinon faux
      */
     boolean partieGagnee(){
@@ -210,7 +210,7 @@ public class Joueur {
     }
 
     /**
-     * @brief Reprend les cartes posées sur ces piles ou les piles de l'adversaire lors du dernier tour
+     *  Reprend les cartes posées sur ces piles ou les piles de l'adversaire lors du dernier tour
      * @param J2 L'adversaire
      * @param compteur Les lieux ou ont été posées les cartes
      */
@@ -234,7 +234,7 @@ public class Joueur {
     }
 
     /**
-     * @brief Cherche la carte dans la main
+     *  Cherche la carte dans la main
      * @param carteAChercher la carte
      * @return l'index à laquel est la carte
      */
@@ -249,7 +249,7 @@ public class Joueur {
     }
 
     /**
-     * @brief Rempli la main a partir de la pioche
+     *  Rempli la main a partir de la pioche
      * @return le nombre de carte piochée
      */
     int remplirMain(){

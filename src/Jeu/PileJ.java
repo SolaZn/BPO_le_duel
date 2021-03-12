@@ -14,20 +14,20 @@ class PileJ {
     private LinkedList<Integer> pile;
 
     /**
-     * @brief Initialise la pile
+     *  Initialise la pile
      */
     PileJ(){
         this.pile = new LinkedList<>();
     }
 
     /**
-     * @brief Ajoute la carte à la pile
+     *  Ajoute la carte à la pile
      * @param carte la carte
      */
     void pushPile(int carte){ this.pile.push(carte); }
 
     /**
-     * @brief Retourne le numéro de la carte
+     *  Retourne le numéro de la carte
      * @return le numéro de la carte
      */
     int showCarte(){ return this.pile.peek(); }
