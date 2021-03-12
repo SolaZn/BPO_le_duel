@@ -8,6 +8,8 @@ import java.util.LinkedList;
  * Y sont représentés sa contenance et les manières de la manip
  */
 class PiocheJ {
+    /** Représente la liste chaînée d'entiers correspondant
+     * aux cartes dans la pioche du joueur */
     private LinkedList<Integer> pilePioche;
 
     /**

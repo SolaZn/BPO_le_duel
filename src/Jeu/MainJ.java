@@ -10,6 +10,8 @@ import java.util.LinkedList;
  * @author Slim BEN DAALI et Anthony ZAKANI
  */
 class MainJ {
+    /** Représente une liste chaînée d'entiers correspondants
+     * aux cartes de la main */
     private LinkedList<Integer> main;
 
     /**

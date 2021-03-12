@@ -18,14 +18,12 @@ public class Partie {
      * @brief Joue la carte sur ca pile ou la pile de l'adversaire
      * @param carteJouee La carte jouée
      * @param Carte La carte jouée plus la pile sur laquel jouée
-     * @param J
-     * @param J2
-     * @param compteur
-     * @return
+     * @param J Le joueur qui joue
+     * @param J2 l'adversaire
+     * @param compteur la pile sur laquelle la carte a été jouée
+     * @return vrai si la carte a pu être jouée
      */
     protected static boolean jouer(int carteJouee, String Carte, Joueur J, Joueur J2, LinkedList<etatCompteur> compteur){
-        // ajouter les retraits de carte de la main du joueur après qu'elles aient été posées
-        // + les règles de remplissage de la main en fonction de là où la carte a été posée
         if(Carte.length() == 4){
             if(Carte.charAt(3) == '\''){
                 switch (Carte.charAt(2)){
@@ -87,10 +85,11 @@ public class Partie {
     }
 
     /**
+     * @brief Effectue les opérations nécessaires au déroulement d'un tour
      * @param J désigne le joueur qui joue le tour
      * @param J2 désigne le joueur contre qui le tour est joué
      * @return vrai si le tour suivant doit se produire
-     *         faux si le tour s
+     *         faux si le tour actuel est censé être le dernier
      */
     static boolean tour(Joueur J, Joueur J2){
         J.getMainJoueur().rangerMain();
@@ -202,13 +201,14 @@ public class Partie {
     }
 
     /**
-     * @param joueur1
-     * @param joueur2
+     * @brief Permet l'alternance des tours entre les deux joueurs
+     * @param joueur1 le premier joueur à jouer
+     * @param joueur2 le second joueur à jouer
      */
     public static void lancerPartie(Joueur joueur1, Joueur joueur2){
         for(;;) {
             //Nord joue
-            if (joueur1.getMainJoueur().getTailleMain() >= 2) {
+            if (joueur1.getMainJoueur().getTailleMain() >= 2) { // si sa main est en possibilité de jouer
                 if (!tour(joueur1, joueur2)) { // si l'état du tour donne faux (partie perdue) -> le jeu s'interrompt
                     break;
                 }
@@ -217,14 +217,14 @@ public class Partie {
             }
 
             //Sud joue
-            if (joueur2.getMainJoueur().getTailleMain() >= 2) {
+            if (joueur2.getMainJoueur().getTailleMain() >= 2) { // si sa main est en possibilité de jouer
                 if (!tour(joueur2, joueur1)) { // si l'état du tour donne faux (partie perdue) -> le jeu s'interrompt
                     break;
                 }
             } else {
                 break;
             }
-        }
+        } // Tant que l'on est pas sorti par un break
     }
 }
 

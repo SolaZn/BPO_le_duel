@@ -9,6 +9,8 @@ import java.util.LinkedList;
  * @author Slim BEN DAALI et Anthony ZAKANI
  */
 class PileJ {
+    /** Représente la liste chaînée d'entiers correspondant aux
+     * cartes dans la pile du joueur */
     private LinkedList<Integer> pile;
 
     /**

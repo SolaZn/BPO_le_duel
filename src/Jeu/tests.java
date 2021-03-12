@@ -1,11 +1,10 @@
 package Jeu;
 
-import Jeu.Joueur;
 import org.junit.Test;
 import org.junit.Assert;
 import java.util.LinkedList;
 
-public class test{
+public class tests {
 
     @Test
     public void piocherVide(){
@@ -44,7 +43,7 @@ public class test{
 
     @Test
     public void joueurInitialiser(){
-        //
+        //Vérifie que le joueur est bien initialiser
         Joueur J = new Joueur("Cobaye");
         Assert.assertEquals(6, J.getMainJoueur().getTailleMain());
         Assert.assertEquals(52, J.getPioche().getNbCartes());
@@ -73,7 +72,7 @@ public class test{
 
     @Test
     public void isEmptyMain(){
-        //
+        //Vérifie que la fonction isEmpty fonctionne bien
         Joueur J = new Joueur("Cobaye");
         int nbCarte = J.getMainJoueur().getTailleMain();
         for(int i = 0; i < nbCarte; ++i){
@@ -84,7 +83,7 @@ public class test{
 
     @Test
     public void joueurCorrect(){
-        //
+        //Verifie que le joueur jouer
         Joueur J = new Joueur("Cobaye");
         Joueur J2 = new Joueur("Cobaye");
         J.getPileAsc().pushPile(21);
@@ -96,9 +95,25 @@ public class test{
 
     @Test
     public void possibilitéPoserCarte(){
-        //
+        //Verifie que la méthode possibilitéJouerfonctionne bien
         Joueur J = new Joueur("Cobaye");
         Joueur J2 = new Joueur("Cobaye");
         Assert.assertTrue(J.possibiliteJouer(J2));
+    }
+
+    @Test
+    public void conditionVictoire(){
+        //Verifie que les conditions de la victoire sont bien implémentées
+        Joueur J = new Joueur("Cobaye");
+        Joueur J2 = new Joueur("Cobaye2");
+        int nbCartes = J.getPioche().getNbCartes();
+        for (int i = 0 ; i < nbCartes ; ++i){
+            J.getPioche().getCartePioche();
+        }
+        int nbCartesMain = J.getMainJoueur().getTailleMain();
+        for (int i = 0 ; i < nbCartesMain ; ++i){
+            J.getMainJoueur().jouerCarteMain(J.getMainJoueur().getTailleMain()-1);
+        }
+        Assert.assertTrue(J.partieGagnee());
     }
 }
