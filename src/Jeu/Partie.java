@@ -3,9 +3,26 @@ package Jeu;
 import java.util.LinkedList;
 import java.util.Scanner;
 
+/**
+ * La classe Partie contient des méthodes permettant le déroulement d'une partie
+ * de "The Game - Le Duel".
+ * Elle contient ce qui est nécessaire au bon déroulement d'une partie du jeu de
+ * société.
+ *
+ * @author Slim BEN DAALI et Anthony ZAKANI
+ */
 public class Partie {
     enum etatCompteur{ASC, DSC, ASCAD, DSCAD}
 
+    /**
+     * @brief Joue la carte sur ca pile ou la pile de l'adversaire
+     * @param carteJouee La carte jouée
+     * @param Carte La carte jouée plus la pile sur laquel jouée
+     * @param J
+     * @param J2
+     * @param compteur
+     * @return
+     */
     protected static boolean jouer(int carteJouee, String Carte, Joueur J, Joueur J2, LinkedList<etatCompteur> compteur){
         // ajouter les retraits de carte de la main du joueur après qu'elles aient été posées
         // + les règles de remplissage de la main en fonction de là où la carte a été posée
@@ -14,7 +31,7 @@ public class Partie {
                 switch (Carte.charAt(2)){
                     case 'v' :
                         if(carteJouee > J2.getPileDsc().showCarte()){
-                            if (!J.getMainJoueur().chercherCarte(carteJouee))
+                            if (!J.chercherCarte(carteJouee))
                                 return false;
                             J2.getPileDsc().pushPile(carteJouee);
                             compteur.add(etatCompteur.DSCAD);
@@ -24,7 +41,7 @@ public class Partie {
                         break;
                     case '^' :
                         if(carteJouee < J2.getPileAsc().showCarte()){
-                            if(!(J.getMainJoueur().chercherCarte(carteJouee)))
+                            if(!(J.chercherCarte(carteJouee)))
                                 return false;
                             J2.getPileAsc().pushPile(carteJouee);
                             compteur.add(etatCompteur.ASCAD);
@@ -43,7 +60,7 @@ public class Partie {
                 switch (Carte.charAt(2)) {
                     case 'v':
                         if (carteJouee < J.getPileDsc().showCarte() || carteJouee == (J.getPileDsc().showCarte() + 10)) {
-                            if (!(J.getMainJoueur().chercherCarte(carteJouee)))
+                            if (!(J.chercherCarte(carteJouee)))
                                 return false;
                             J.getPileDsc().pushPile(carteJouee);
                             compteur.add(etatCompteur.DSC);
@@ -52,7 +69,7 @@ public class Partie {
                         break;
                     case '^':
                         if (carteJouee > J.getPileAsc().showCarte() || carteJouee == (J.getPileAsc().showCarte() - 10)) {
-                            if (!(J.getMainJoueur().chercherCarte(carteJouee)))
+                            if (!(J.chercherCarte(carteJouee)))
                                 return false;
                             J.getPileAsc().pushPile(carteJouee);
                             compteur.add(etatCompteur.ASC);
@@ -69,6 +86,12 @@ public class Partie {
         return false;
     }
 
+    /**
+     * @param J désigne le joueur qui joue le tour
+     * @param J2 désigne le joueur contre qui le tour est joué
+     * @return vrai si le tour suivant doit se produire
+     *         faux si le tour s
+     */
     static boolean tour(Joueur J, Joueur J2){
         J.getMainJoueur().rangerMain();
         J2.getMainJoueur().rangerMain();
@@ -156,7 +179,7 @@ public class Partie {
 
         if (!J.partieGagnee()) {
             if (!J.getPioche().isEmpty())
-                nbCartesPiochees = J.getMainJoueur().remplirMain(J);
+                nbCartesPiochees = J.remplirMain();
             J.setJeuHostile(false);
             System.out.println(nbCartePoser + " cartes posées, " + nbCartesPiochees + " cartes piochées");
 
@@ -178,6 +201,10 @@ public class Partie {
         }
     }
 
+    /**
+     * @param joueur1
+     * @param joueur2
+     */
     public static void lancerPartie(Joueur joueur1, Joueur joueur2){
         for(;;) {
             //Nord joue

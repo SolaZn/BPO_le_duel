@@ -3,9 +3,19 @@ package Jeu;
 import java.util.Collections;
 import java.util.LinkedList;
 
+/**
+ * La classe MainJ représente la main (les cartes que peut jouer un joueur).
+ * Y sont représentés sa contenance et les manières de la manipuler.
+ *
+ * @author Slim BEN DAALI et Anthony ZAKANI
+ */
 class MainJ {
     private LinkedList<Integer> main;
 
+    /**
+     * @brief Initialise la main en la remplissant de six cartes de la pioche
+     * @param J Le joueur sur lequel on
+     */
     MainJ(Joueur J){
         this.main = new LinkedList<>();
         for(int i = 0; i < 6; ++i) {
@@ -13,10 +23,18 @@ class MainJ {
         }
     }
 
+    /**
+     * @brief Range la main dans l'ordre croissant
+     */
     void rangerMain(){
         Collections.sort(this.main);
     }
 
+    /**
+     * @brief Retourne la manière d'afficher la main du joueur
+     * @param J le joueur
+     * @return la manière d'afficher la main
+     */
     public String toString(Joueur J){
         StringBuilder a = new StringBuilder("cartes " + J.getNom() + " { ");
         for(int i = 0; i < this.main.size(); ++i){
@@ -30,59 +48,45 @@ class MainJ {
         return a.toString();
     }
 
+    /**
+     * @brief Supprime la carte de la main
+     * @param idx L'index de la carte dans la main
+     */
     void jouerCarteMain(int idx){
         this.main.remove(idx);
     }
 
-    boolean chercherCarte(int carteAChercher){
-        for(int i = 0; i < this.main.size(); ++i){
-            if(carteAChercher == this.main.get(i)){
-                jouerCarteMain(i);
-                return true;
-            }
-        }
-        return false;
-    }
-
+    /**
+     * @brief Ajoute la carte dans la main
+     * @param carte la carte
+     */
     void setCarteMain(int carte){
         if(this.main.size() < 6) {
             this.main.add(carte);
         }
     }
 
-    int remplirMain(Joueur J){
-        int nbCartesAPiocher;
-        boolean aJoueAilleurs = J.getJeuHostile();
-        if (aJoueAilleurs){
-            nbCartesAPiocher = 6 - this.main.size();
-        }
-        else
-            nbCartesAPiocher = 2;
-        if(J.getPioche().getNbCartes() >= nbCartesAPiocher) {
-            for (int i = 0; i < nbCartesAPiocher; ++i) {
-                this.main.add(J.getPioche().getCartePioche());
-            }
-        }
-        else if (!(J.getPioche().isEmpty())){
-            nbCartesAPiocher = J.getPioche().getNbCartes();
-            while (!(J.getPioche().isEmpty())) {
-                this.main.add(J.getPioche().getCartePioche());
-            }
-        }
-        else{
-            return 0;
-        }
-        return nbCartesAPiocher;
-    }
-
+    /**
+     * @brief Retourne le numéro de la carte à l'index dans la main
+     * @param idx L'index
+     * @return La carte
+     */
     int showCarteMain(int idx){
         return this.main.get(idx);
     }
 
+    /**
+     * @brief Retourne la taille de la main
+     * @return la taille de la main
+     */
     int getTailleMain(){
         return this.main.size();
     }
 
+    /**
+     * @brief Retourne si la carte est vide
+     * @return vrai si la carte est vide sinon faux
+     */
     boolean isEmpty(){
         return this.main.isEmpty();
     }

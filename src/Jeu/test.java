@@ -16,22 +16,22 @@ public class test{
         for (int i = 0 ; i < nbCartes ; ++i){
             J.getPioche().getCartePioche();
         }
-        Assert.assertEquals(0, J.getMainJoueur().remplirMain(J));
+        Assert.assertEquals(0, J.remplirMain());
     }
 
     @Test
-    public void JouerHostile(){
-        // Vérifier que le statut de jeu hostile s'applique correctement et produit une piochage
+    public void jouerHostile(){
+        // Vérifier que le statut de jeu hostile s'applique correctement et produit une piochage approprié
         Joueur J = new Joueur("Cobaye");
         J.setJeuHostile(true);
         for(int i = 0; i < 3; ++i) {
             J.getMainJoueur().jouerCarteMain(J.getMainJoueur().getTailleMain() - 1);
         }
-        Assert.assertEquals(3, J.getMainJoueur().remplirMain(J));
+        Assert.assertEquals(3, J.remplirMain());
     }
 
     @Test
-    public void JouerNonHostile(){
+    public void jouerNonHostile(){
         // Vérifier que le statut de jeu non hostile s'applique correctement et produit une piochage approrié
         Joueur J = new Joueur("Cobaye");
         J.setJeuHostile(false);
@@ -39,12 +39,12 @@ public class test{
             J.getMainJoueur().jouerCarteMain(J.getMainJoueur().getTailleMain() - 1);
         }
 
-        Assert.assertEquals(2, J.getMainJoueur().remplirMain(J));
+        Assert.assertEquals(2, J.remplirMain());
     }
 
     @Test
     public void joueurInitialiser(){
-        // Vérifier que le statut de jeu non hostile s'applique correctement et produit une piochage approrié
+        //
         Joueur J = new Joueur("Cobaye");
         Assert.assertEquals(6, J.getMainJoueur().getTailleMain());
         Assert.assertEquals(52, J.getPioche().getNbCartes());
@@ -73,7 +73,7 @@ public class test{
 
     @Test
     public void isEmptyMain(){
-        // Vérifier que le statut de jeu non hostile s'applique correctement et produit une piochage approrié
+        //
         Joueur J = new Joueur("Cobaye");
         int nbCarte = J.getMainJoueur().getTailleMain();
         for(int i = 0; i < nbCarte; ++i){
@@ -84,7 +84,7 @@ public class test{
 
     @Test
     public void joueurCorrect(){
-        // Vérifier que le statut de jeu non hostile s'applique correctement et produit une piochage approrié
+        //
         Joueur J = new Joueur("Cobaye");
         Joueur J2 = new Joueur("Cobaye");
         J.getPileAsc().pushPile(21);
@@ -96,7 +96,7 @@ public class test{
 
     @Test
     public void possibilitéPoserCarte(){
-        // Vérifier que le statut de jeu non hostile s'applique correctement et produit une piochage approrié
+        //
         Joueur J = new Joueur("Cobaye");
         Joueur J2 = new Joueur("Cobaye");
         Assert.assertTrue(J.possibiliteJouer(J2));

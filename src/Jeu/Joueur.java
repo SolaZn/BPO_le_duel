@@ -3,15 +3,34 @@ package Jeu;
 import Jeu.Partie.etatCompteur;
 import java.util.LinkedList;
 
+/**
+ * La classe Joueur représente le joueur et toutes ses caractéristiques.
+ * Ses cartes, sa façon de jouer et son état de victoire y sont représentés.
+ *
+ * @author Slim BEN DAALI et Anthony ZAKANI
+ */
 public class Joueur {
+    /** Représente le nom attribué au joueur */
     private String nomJoueur;
+    /** Représente la pile de cartes ascendentes du joueur */
     private PileJ pileAsc;
+    /** Représente la pile de cartes descendantes du joueur */
     private PileJ pileDsc;
+    /** Représente la main du joueur */
     private MainJ mainJoueur;
+    /** Représente la pioche du joueur */
     private PiocheJ piocheJoueur;
+    /** Représente l'état de jeu hostile du joueur
+     * (si il a joué sur la pile du joueur adverse au tour
+     * précédent) */
     private boolean jeuHostile;
+    /** Représente l'état de victoire du joueur */
     private boolean gagnant;
 
+    /**
+     * @brief Initialise le joueur ainsi que tous ses attributs avec son nom
+     * @param nom Le nom du joueur
+     */
     public Joueur(String nom){
         this.nomJoueur = nom;
         this.piocheJoueur = new PiocheJ();
@@ -21,14 +40,25 @@ public class Joueur {
         this.jeuHostile = false;
     }
 
+    /**
+     * @brief Retourne le nom du joueur
+     * @return le nom du joueur
+     */
     public String getNom() {
         return nomJoueur;
     }
 
+    /**
+     * @brief Retourne l'etat de l'attribut gagnant
+     * @return l'etat de l'attribut gagnant
+     */
     public boolean isGagnant(){
         return this.gagnant;
     }
 
+    /**
+     * @brief initialise les piles ascendante et descendante
+     */
     private void initialiserPiles(){
         this.pileDsc = new PileJ();
         this.pileAsc = new PileJ();
@@ -37,6 +67,10 @@ public class Joueur {
         this.pileAsc.pushPile(1);
     }
 
+    /**
+     * @brief Retourne la manière d'afficher les piles
+     * @return La manière d'afficher les piles
+     */
     private String affichePiles(){
         String a = "^[";
         if (this.pileAsc.showCarte() < 10) {
@@ -52,17 +86,40 @@ public class Joueur {
         return a;
     }
 
+    /**
+     * @brief Retourne la pioche
+     * @return la pioche
+     */
     PiocheJ getPioche(){
         return this.piocheJoueur;
     }
+
+    /**
+     * @brief Retourne la pile ascendante du joueur
+     * @return la pile ascendante
+     */
     PileJ getPileAsc(){
         return this.pileAsc;
     }
+
+    /**
+     * @brief Retourne la pile descendante du joueur
+     * @return la pile descendante
+     */
     PileJ getPileDsc(){
         return this.pileDsc;
     }
+
+    /**
+     * @brief Retourne la main du joueur
+     * @return la main
+     */
     MainJ getMainJoueur(){ return this.mainJoueur; }
 
+    /**
+     * @brief Retourne la manière d'afficher le joueur
+     * @return la manière d'afficher le joueur
+     */
     public String toString() {
         return nomJoueur + " " +
                 affichePiles() +
@@ -70,18 +127,34 @@ public class Joueur {
                 + "p" + piocheJoueur.getNbCartes() + ")";
     }
 
+    /**
+     * @brief Modifie la valeur de l'attribut gagnant a vrai
+     */
     void setGagnant(){
         this.gagnant = true;
     }
 
+    /**
+     * @brief Modifie l'etat de l'attribut jeuHostile à Etat
+     * @param Etat l'etat a mettre à l'attribut jeuHostile
+     */
     void setJeuHostile(boolean Etat){
         this.jeuHostile = Etat;
     }
 
+    /**
+     * @brief Retourne l'etat de l'attribut jeuHostile
+     * @return l'état de l'attribut jeuHostile
+     */
     boolean getJeuHostile(){
         return this.jeuHostile;
     }
 
+    /**
+     * @brief Vérifie si les cartes jouées sont dans la main
+     * @param intTab les cartes jouées
+     * @return vrai si les cartes sont existantes, sinon faux
+     */
     boolean verifCarte(int[] intTab){
         int cartesExistantes = 0;
         for(int cartes : intTab){
@@ -96,6 +169,11 @@ public class Joueur {
         return cartesExistantes == intTab.length;
     }
 
+    /**
+     * @brief Vérifie si le joueur peut joueur sur ces piles ou les piles de son adversaire lors de son tour
+     * @param J2 L'adversaire
+     * @return vrai si le joueur peut jouer sinon faux
+     */
     boolean possibiliteJouer(Joueur J2) {
         int cartePossible = 0;
         for (int i = 0; i < this.mainJoueur.getTailleMain(); ++i) {
@@ -119,6 +197,10 @@ public class Joueur {
         return cartePossible >= 2;
     }
 
+    /**
+     * @brief Vérifie si le joueur a gagné la partie
+     * @return vrai si le joueur a gagné sinon faux
+     */
     boolean partieGagnee(){
         if(this.mainJoueur.isEmpty() && this.piocheJoueur.isEmpty()){
             this.setGagnant();
@@ -127,6 +209,11 @@ public class Joueur {
         return false;
     }
 
+    /**
+     * @brief Reprend les cartes posées sur ces piles ou les piles de l'adversaire lors du dernier tour
+     * @param J2 L'adversaire
+     * @param compteur Les lieux ou ont été posées les cartes
+     */
     void reprendreCarte(Joueur J2, LinkedList<etatCompteur> compteur){
         for(int i = 0; i < compteur.size(); ++i){
             switch (compteur.get(i)){
@@ -144,5 +231,49 @@ public class Joueur {
                     break;
             }
         }
+    }
+
+    /**
+     * @brief Cherche la carte dans la main
+     * @param carteAChercher la carte
+     * @return l'index à laquel est la carte
+     */
+    boolean chercherCarte(int carteAChercher){
+        for(int i = 0; i < this.getMainJoueur().getTailleMain(); ++i){
+            if(carteAChercher == this.getMainJoueur().showCarteMain(i)){
+                this.getMainJoueur().jouerCarteMain(i);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * @brief Rempli la main a partir de la pioche
+     * @return le nombre de carte piochée
+     */
+    int remplirMain(){
+        int nbCartesAPiocher;
+        boolean aJoueAilleurs = this.getJeuHostile();
+        if (aJoueAilleurs){
+            nbCartesAPiocher = 6 - this.getMainJoueur().getTailleMain();
+        }
+        else
+            nbCartesAPiocher = 2;
+        if( this.getPioche().getNbCartes() >= nbCartesAPiocher) {
+            for (int i = 0; i < nbCartesAPiocher; ++i) {
+                this.getMainJoueur().setCarteMain(this.getPioche().getCartePioche());
+            }
+        }
+        else if (!(this.getPioche().isEmpty())){
+            nbCartesAPiocher = this.getPioche().getNbCartes();
+            while (!(this.getPioche().isEmpty())) {
+                this.getMainJoueur().setCarteMain(this.getPioche().getCartePioche());
+            }
+        }
+        else{
+            return 0;
+        }
+        return nbCartesAPiocher;
     }
 }
