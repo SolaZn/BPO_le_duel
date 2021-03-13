@@ -1,6 +1,5 @@
 package Jeu;
 
-import java.sql.SQLOutput;
 import java.util.LinkedList;
 import java.util.Scanner;
 
@@ -213,7 +212,7 @@ public class Partie {
                 if (!tour(joueur1, joueur2)) { // si l'état du tour donne faux (partie perdue) -> le jeu s'interrompt
                     break;
                 }
-            } else {
+            } else { // si Nord ne peut jouer par défaut de cartes, Sud gagne
                 joueur2.setGagnant();
                 System.out.println(joueur1.toString());
                 System.out.println(joueur2.toString());
@@ -226,7 +225,7 @@ public class Partie {
                 if (!tour(joueur2, joueur1)) { // si l'état du tour donne faux (partie perdue) -> le jeu s'interrompt
                     break;
                 }
-            } else {
+            } else { // si Sud ne peut jouer par défaut de cartes, Nord gagne
                 joueur1.setGagnant();
                 System.out.println(joueur1.toString());
                 System.out.println(joueur2.toString());

@@ -23,7 +23,7 @@ class PiocheJ {
     }
 
     /**
-     * Remplie la pioche de 58 cartes
+     * Remplit la pioche de 58 cartes
      */
     private void initialiserPioche(){
         for (int i = 2; i <= 59; ++i){
@@ -33,7 +33,7 @@ class PiocheJ {
     }
 
     /**
-     *  Retourne le nombre de carte dans la pioche
+     *  Retourne le nombre de cartes dans la pioche
      * @return le nombre de carte dans la pioche
      */
     int getNbCartes(){
