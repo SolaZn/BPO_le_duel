@@ -1,5 +1,6 @@
 package Jeu;
 
+import java.sql.SQLOutput;
 import java.util.LinkedList;
 import java.util.Scanner;
 
@@ -213,6 +214,10 @@ public class Partie {
                     break;
                 }
             } else {
+                joueur2.setGagnant();
+                System.out.println(joueur1.toString());
+                System.out.println(joueur2.toString());
+                System.out.println(joueur1.getMainJoueur().toString(joueur1));
                 break;
             }
 
@@ -222,6 +227,10 @@ public class Partie {
                     break;
                 }
             } else {
+                joueur1.setGagnant();
+                System.out.println(joueur1.toString());
+                System.out.println(joueur2.toString());
+                System.out.println(joueur2.getMainJoueur().toString(joueur2));
                 break;
             }
         } // Tant que l'on est pas sorti par un break
