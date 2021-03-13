@@ -16,7 +16,7 @@ public class Joueur {
     private PileJ pileAsc;
     /** Représente la pile de cartes descendantes du joueur */
     private PileJ pileDsc;
-    /** Représente la main du joueur */
+    /** Représente les cartes dans la main du joueur */
     private MainJ mainJoueur;
     /** Représente la pioche du joueur */
     private PiocheJ piocheJoueur;
@@ -49,15 +49,15 @@ public class Joueur {
     }
 
     /**
-     *  Retourne l'etat de l'attribut gagnant
-     * @return l'etat de l'attribut gagnant
+     *  Retourne l'état de l'attribut gagnant
+     * @return l'état de l'attribut gagnant
      */
     public boolean isGagnant(){
         return this.gagnant;
     }
 
     /**
-     *  initialise les piles ascendante et descendante
+     *  Initialise les piles ascendante et descendante
      */
     private void initialiserPiles(){
         this.pileDsc = new PileJ();
@@ -249,8 +249,8 @@ public class Joueur {
     }
 
     /**
-     *  Rempli la main a partir de la pioche
-     * @return le nombre de carte piochée
+     *  Remplit la main à partir de la pioche
+     * @return le nombre de cartes piochées
      */
     int remplirMain(){
         int nbCartesAPiocher;

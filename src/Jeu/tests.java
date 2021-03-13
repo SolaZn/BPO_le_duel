@@ -4,6 +4,12 @@ import org.junit.Test;
 import org.junit.Assert;
 import java.util.LinkedList;
 
+/**
+ * La classe tests compile les différents tests unitaires réalisés pour
+ * vérifier le fonctionnement de la logique du programme.
+ *
+ * @author Slim BEN DAALI et Anthony ZAKANI
+ */
 public class tests {
 
     @Test
@@ -43,7 +49,7 @@ public class tests {
 
     @Test
     public void joueurInitialiser(){
-        //Vérifie que le joueur est bien initialiser
+        //Vérifie que le joueur est bien initialisé
         Joueur J = new Joueur("Cobaye");
         Assert.assertEquals(6, J.getMainJoueur().getTailleMain());
         Assert.assertEquals(52, J.getPioche().getNbCartes());
@@ -83,7 +89,7 @@ public class tests {
 
     @Test
     public void joueurCorrect(){
-        //Verifie que le joueur jouer
+        //Verifie que le joueur peut jouer une carte qu'il a dans la main
         Joueur J = new Joueur("Cobaye");
         Joueur J2 = new Joueur("Cobaye");
         J.getPileAsc().pushPile(21);
@@ -103,7 +109,7 @@ public class tests {
 
     @Test
     public void conditionVictoire(){
-        //Verifie que les conditions de la victoire sont bien implémentées
+        //Verifie que les conditions de victoire sont bien implémentées
         Joueur J = new Joueur("Cobaye");
         int nbCartes = J.getPioche().getNbCartes();
         for (int i = 0 ; i < nbCartes ; ++i){
