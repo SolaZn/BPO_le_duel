@@ -1,6 +1,6 @@
 
   BPO Projet période C : Projet The Game – Le Duel  
-  Auteurs : Slim BEN DAALI et Anthony ZAKANI  
+  Auteurs : Slim BEN DAALI (@IKayZox) et Anthony ZAKANI (@maketheswitch)
    dans le cadre d'un DUT Informatique au sein de l'Université de Paris  
   Dernière mise à jour : samedi 13 mars 2021 à 22h36  
   
