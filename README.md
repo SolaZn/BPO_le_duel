@@ -3,7 +3,16 @@
   Auteurs : Slim BEN DAALI et Anthony ZAKANI  
    dans le cadre d'un DUT Informatique au sein de l'Université de Paris  
   Dernière mise à jour : samedi 13 mars 2021 à 22h36  
- 
+  
+  Buts du projet :   
+  Découvrir le langage Java et le principe de programmation "orientée-objet"  
+  Définir ses propres classes  
+  Construire un programme implémentant toute une série de règles de jeu  
+  Travailler en bînome pour convenir d'une production commune  
+  Documenter et expliquer son code pour le rendre le plus clair possible  
+  Contribuer à l'évolutivité de son code en travaillant sa structure  
+  
+-----------------------------------------------------------------------------------------------------
 
 Etat du projet au 11 février 2021
 
